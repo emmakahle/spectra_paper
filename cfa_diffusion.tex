@@ -344,6 +344,20 @@ To determine which of these three parametrizations best fits the data, we tested
 
 %------------------------------------------------
 %%%%%%%% Christian worked on the lower part
+\section{Results}
+The different fitting procedures are evaluated by calculating the adjusted goodness of fit ($\bar{R}^2$) between the spectra and parameterizations. The $\bar{R}^2$ is a goodness of fit estimation ($R^2$) that takes into account the number of fitted parameters ($p$):
+\begin{equation}
+\bar{R}^2 = 1 - (1 -R^2) \frac{n - 1}{n - p - 1},
+\end{equation}
+where $n$ is the sample size. 
+The $\bar{R}^2$ values enables a comparison between the parameterizations that use six fitting parameters with
+the parameterization that uses five parameters (the addition of white noise).
+The $\bar{R}^2$ values are plotted as a function of age in Fig. \ref{G_of_fit_1}. 
+It is evident that all the parameterizations provide good fits to the data, 
+but the best fits are obtained with the extra Gaussian or the FND.  
+For simplicity and computational efficiency, the Gaussian curve should be preferred over the FND.
+
+
 \section{Validation of results}
 The first way of examining the significance of the results are by comparing the diffusion length estimates from the
 noise adding method with the estimates from utilizing the parameterization method.
@@ -359,27 +373,6 @@ It is evident that the estimated diffusion lengths from this paper are very simi
 There is a few peaks that stand out such as an age of around 12,000 years. These peaks were not found in \cite{Jones2016} likely due
 to their lower resolution (not a moving window). 
 
-\begin{figure}
-	\includegraphics[width=.9\linewidth]{WAIS_diffusion_adding_noise.eps}
-	\caption{WDC diffusion lengths of $\delta^{18}$O (left) and $\delta$D (right). 
-		The method that has an extra Gaussian is represented by the blue curve and 
-		the addition of white noise is represented by the black curve.} \label{WAIS_diffusion_adding_noise}
-\end{figure}
-
-\begin{figure}
-	\includegraphics[width=.9\linewidth]{added_noise_sensitivity.eps}
-	\caption{Gradient in estimated diffusion lengths with respect to noise level and age.} \label{added_noise_sensitivity}
-\end{figure}
-
-\begin{figure}
-	\includegraphics[width=.9\linewidth]{WAIS_diffusion_lengths.eps}
-	\caption{Estimated WDC diffusion lengths of $\delta$D compared with \cite{Jones2016}} \label{WAIS_diffusion_lengths}
-\end{figure}
-
-\begin{figure}
-	\includegraphics[width=.9\linewidth]{WAIS_diffusion_lengths_thinning_corr.eps}
-	\caption{Thinning corrected WDC diffusion lengths compared of $\delta$D with \cite{Jones2016}} \label{WAIS_diffusion_lengths_thinning_corr}
-\end{figure}
 
 %%%%%%%% Christian worked on the upper part
 
@@ -391,11 +384,6 @@ While the cut-off technique requires the choice of cut-off frequency and is less
 
 Using the same CFA data sets as the cut-off technique, we applied the multi-function technique with both single- and double-Gaussian formulations to examine the effectiveness of the fits. Figure \ref{sigma_comp} shows comparisons of each technique for both WAIS Divide and South Pole data sets -- need to add WAIS results from Christian. For both ice cores the double-Gaussian formulation of the multi-function technique agrees well with the cut-off technique. Table \ref{correlationtable} summarizes the correlations between fits over the entire data sets. -- Include a table here to summarize how good the fit is quantatatively, especially in comparison with the single-Gaussian parameterization?
 
-
-\begin{figure}
-	\includegraphics[width=.9\linewidth]{G_of_fit_1.eps}
-	\caption{The frequency weighted goodness of fit calculations. The adjusted $R^2$ values represent goodness of fit versus degrees of freedom.} \label{G_of_fit_1}
-\end{figure}
 
 
 %------------------------------------------------
@@ -1092,6 +1080,31 @@ Lu, P., and M.~Ando (2012), Difference of scattering geometrical optics
 
 \newpage
 
+
+\begin{figure}
+	\includegraphics[width=.9\linewidth]{WAIS_diffusion_adding_noise.eps}
+	\caption{WDC diffusion lengths of $\delta^{18}$O (left) and $\delta$D (right). 
+		The method that has an extra Gaussian is represented by the blue curve and 
+		the addition of white noise is represented by the black curve.} \label{WAIS_diffusion_adding_noise}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=.9\linewidth]{added_noise_sensitivity.eps}
+	\caption{Gradient in estimated diffusion lengths with respect to noise level and age.} \label{added_noise_sensitivity}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=.9\linewidth]{WAIS_diffusion_lengths.eps}
+	\caption{Estimated WDC diffusion lengths of $\delta$D compared with \cite{Jones2016}} \label{WAIS_diffusion_lengths}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=.9\linewidth]{WAIS_diffusion_lengths_thinning_corr.eps}
+	\caption{Thinning corrected WDC diffusion lengths compared of $\delta$D with \cite{Jones2016}} \label{WAIS_diffusion_lengths_thinning_corr}
+\end{figure}
+
+
+
 \begin{figure}
 \includegraphics[width=.9\linewidth]{spectra_disVScfa.eps}
 \caption{Replace with better figures from Christian comparing many discrete spectra and CFA spectra to illustrate the effect of the transition zone}\label{spectra_disVScfa}
@@ -1121,6 +1134,13 @@ Lu, P., and M.~Ando (2012), Difference of scattering geometrical optics
 \includegraphics[width=.9\linewidth]{sigma_comp.eps}
 \caption{Comparison of diffusion length $\sigma$ as calculated by cut-off technique and multi-function technique (single and double Gaussian) for WDC and SPC}\label{sigma_comp}
 \end{figure}
+
+\begin{figure}
+	\includegraphics[width=.9\linewidth]{G_of_fit_1.eps}
+	\caption{The goodness of fit calculations. The adjusted $R^2$ values represent goodness of fit versus degrees of freedom.} \label{G_of_fit_1}
+\end{figure}
+
+
 
 \begin{figure}
 \includegraphics[width=.9\linewidth]{sigma2.eps}
