@@ -279,57 +279,57 @@ The multi-function technique has been used effectively to estimate diffusion len
 In order to best fit the spectra of CFA data, we have examined two different approaches. The first approach removes the extra transition zone by masking it with white noise. The second approach parameterizes the total PSD by including an extra function in the fitting procedure. Both techniques are introduced and tested on ice core data from WDC and SPC.
 
 \subsection{Adding white noise}
-The main difference between the WDC/SPC CFA data and the discrete data is the resolution and precision. 
+The main difference between the WDC/SPC CFA data and the discrete data is the resolution and precision.
 This difference migrates into the PSD by letting the CFA data having a lower white noise baseline for the high frequencies compared to that of the discrete data (refer to a figure).
 Previous studies of water isotope diffusion have not had the same precision and resolution as the measurements of WDC and SPC. Despite of lower precision, diffusion-based temperature reconstructions have still proved possible \citep{Gkinis2014,Holme2017}.
-Hence, whether the transition zone is some climate or measurement induced process, 
-one solution is to mask the transition zone in the CFA data. 
-This is achieved by adding Gaussian distributed noise in the time domain which increases the white noise level in the frequency domain. 
+Hence, whether the transition zone is some climate or measurement induced process,
+one solution is to mask the transition zone in the CFA data.
+This is achieved by adding Gaussian distributed noise in the time domain which increases the white noise level in the frequency domain.
 This masks the red noise transition and the power spectrum is now similar to that of older CFA measurements.
 The effect of this method can be seen in Fig. \ref{WAIS_spectrum_added_noise}.
 
 \begin{figure}
 	\includegraphics[width=.9\linewidth]{WAIS_spectrum_added_noise.eps}
 	\caption{PSD of $\delta$D for a WDC section (solid curves). Blue curve represents
-			the measured signal and the black curve represents the modified signal. 
-			The dashed lines represent the fitted Gaussian function which 
+			the measured signal and the black curve represents the modified signal.
+			The dashed lines represent the fitted Gaussian function which
 			corresponds to the firn diffusion.} \label{WAIS_spectrum_added_noise}
 \end{figure}
 
 We have constructed a sensitivity test in order to quantify the most optimal choice of noise level.
 The test consist of a 500 year moving window.
-For each window section, a total of 100 diffusion lengths are estimated 
-by adding white noise with an increasing baseline to the data. 
-As a result, a diffusion length estimate is available for each noise level as a function of age/depth. 
-By adding to much noise to the data we risk masking the climate signal.
+For each window section, a total of 100 diffusion lengths are estimated
+by adding white noise with an increasing baseline to the data.
+As a result, a diffusion length estimate is available for each noise level as a function of age/depth.
+By adding too much noise to the data we risk masking the climate signal.
 Hence, the optimal noise level is reached when the diffusion length estimates stop changing with increasing
 noise - the gradient approaches 0.
 We have plotted the gradient in diffusion length with respect to added noise in Fig \ref{added_noise_sensitivity}.
-For WDC, adding a mean noise level of $0.4 \, \permil$ for $\delta^{18}$O  and of $3.0 \,\permil$ for $\delta$D seem 
+For WDC, adding a mean noise level of $0.4 \, \permil$ for $\delta^{18}$O  and of $3.0 \,\permil$ for $\delta$D seem
 to be the most optimal solution.
 
 \subsection{Parameterizing the red noise transition}
-The second approach concerns a parameterization of the total spectrum. 
-In addition to the Gaussian that represents firn diffusion and the autoregressive noise function, 
-we try adding a third function to the total fit to take up any slack in the fit and allow 
-the main Gaussian and the noise level to relax into better fits for the low and high frequencies, 
+The second approach concerns a parameterization of the total spectrum.
+In addition to the Gaussian that represents firn diffusion and the autoregressive noise function,
+we try adding a third function to the total fit to take up any slack in the fit and allow
+the main Gaussian and the noise level to relax into better fits for the low and high frequencies,
 respectively.
-First, we test to simply add an extra 1st order autoregressive noise function. 
-Secondly, we try adding a second Gaussian curve, 
+First, we test to simply add an extra 1st order autoregressive noise function.
+Secondly, we try adding a second Gaussian curve,
 and third we try adding the PSD of a folded normal distribution (FND):
 \begin{equation}
 P_{FND} = P_{0_{FND}} \cdot e^{-(k \cdot \sigma_{FND})^2} \cdot |\left[1 - \Phi(-i k \sigma_{FND})\right]|^2,
 \end{equation}
-where $\Phi(\sigma_{FND}) = 1/2\cdot \mathrm{erfc}(-\sigma_{FND}/2) $. Here $P_0$ and $\sigma_{FND}$ are the 
+where $\Phi(\sigma_{FND}) = 1/2\cdot \mathrm{erfc}(-\sigma_{FND}/2) $. Here $P_0$ and $\sigma_{FND}$ are the
 two parameters that are being estimated from the fitting.
 The justification of fitting a folded normal distribution is that it assimilates memory induced by
-the CFA system. 
-                                                                      
-Our goal here is not to explain physically what this part of the spectrum represents, 
-but simply to find the optimal parameterization to fit the data spectrum. 
-The optimal parameterization will allow the firn Gaussian to better fit the lower-frequency part of the spectrum, 
+the CFA system.
+
+Our goal here is not to explain physically what this part of the spectrum represents,
+but simply to find the optimal parameterization to fit the data spectrum.
+The optimal parameterization will allow the firn Gaussian to better fit the lower-frequency part of the spectrum,
 and thus to get a better estimate of diffusion length compared to Figure \ref{1_gauss}.
- 
+
 
 %%%%%%%% Christian worked on the upper part
 
@@ -349,29 +349,29 @@ The different fitting procedures are evaluated by calculating the adjusted goodn
 \begin{equation}
 \bar{R}^2 = 1 - (1 -R^2) \frac{n - 1}{n - p - 1},
 \end{equation}
-where $n$ is the sample size. 
+where $n$ is the sample size.
 The $\bar{R}^2$ values enables a comparison between the parameterizations that use six fitting parameters with
 the parameterization that uses five parameters (the addition of white noise).
-The $\bar{R}^2$ values are plotted as a function of age in Fig. \ref{G_of_fit_1}. 
-It is evident that all the parameterizations provide good fits to the data, 
-but the best fits are obtained with the extra Gaussian or the FND.  
+The $\bar{R}^2$ values are plotted as a function of age in Fig. \ref{G_of_fit_1}.
+It is evident that all the parameterizations provide good fits to the data,
+but the best fits are obtained with the extra Gaussian or the FND.
 For simplicity and computational efficiency, the Gaussian curve should be preferred over the FND.
 
 
 \section{Validation of results}
 The first way of examining the significance of the results are by comparing the diffusion length estimates from the
 noise adding method with the estimates from utilizing the parameterization method.
-In Fig. \ref{WAIS_diffusion_adding_noise}, the diffusion length estimates are plotted with respect to age. 
+In Fig. \ref{WAIS_diffusion_adding_noise}, the diffusion length estimates are plotted with respect to age.
 It is evident that both methods reconstruct similar diffusion lengths, but the noise adding method seems to be
 more stable in the glacial period. The higher stability is attributed to the fact that the measured water isotope signal
-seems to contain several noisy sections of half a meter or so, which will affect the spectra. 
+seems to contain several noisy sections of half a meter or so, which will affect the spectra.
 By adding white noise to the data, the noisy sections cancel out hereby making the fitting more stable.
 
 Another way of validating the results are by comparing with the diffusion length estimates presented in \cite{Jones2016}.
-This comparison is made in Fig. \ref{WAIS_diffusion_lengths} and \ref{WAIS_diffusion_lengths_thinning_corr}. 
+This comparison is made in Fig. \ref{WAIS_diffusion_lengths} and \ref{WAIS_diffusion_lengths_thinning_corr}.
 It is evident that the estimated diffusion lengths from this paper are very similar to the presented results in \cite{Jones2016}.
 There is a few peaks that stand out such as an age of around 12,000 years. These peaks were not found in \cite{Jones2016} likely due
-to their lower resolution (not a moving window). 
+to their lower resolution (not a moving window).
 
 
 %%%%%%%% Christian worked on the upper part
@@ -1083,8 +1083,8 @@ Lu, P., and M.~Ando (2012), Difference of scattering geometrical optics
 
 \begin{figure}
 	\includegraphics[width=.9\linewidth]{WAIS_diffusion_adding_noise.eps}
-	\caption{WDC diffusion lengths of $\delta^{18}$O (left) and $\delta$D (right). 
-		The method that has an extra Gaussian is represented by the blue curve and 
+	\caption{WDC diffusion lengths of $\delta^{18}$O (left) and $\delta$D (right).
+		The method that has an extra Gaussian is represented by the blue curve and
 		the addition of white noise is represented by the black curve.} \label{WAIS_diffusion_adding_noise}
 \end{figure}
 
