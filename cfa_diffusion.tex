@@ -308,34 +308,18 @@ We have plotted the gradient in diffusion length with respect to added noise in 
 For WDC, adding a mean noise level of $0.4 \, \permil$ for $\delta^{18}$O  and of $3.0 \,\permil$ for $\delta$D seem
 to be the most optimal solution.
 
-\subsection{Parameterizing the red noise transition}
-The second approach concerns a parameterization of the total spectrum.
-In addition to the Gaussian that represents firn diffusion and the autoregressive noise function,
-we try adding a third function to the total fit to take up any slack in the fit and allow
-the main Gaussian and the noise level to relax into better fits for the low and high frequencies,
-respectively.
-First, we test to simply add an extra 1st order autoregressive noise function.
-Secondly, we try adding a second Gaussian curve,
-and third we try adding the PSD of a folded normal distribution (FND):
+%%%%%%%% Christian worked on the upper part
+
+
+\section{Parameterizing a Multi-Function Fit or Parametrerizing the red noise transition}
+The second approach concerns a parameterization of the total spectrum. In order to best fit the spectra of CFA data, we try three different parameterizations of a multi-function fit of all frequencies. In addition to the Gaussian that represents firn diffusion and the autoregressive noise function, we try adding a third function to the total fit to take up any slack in the fit and allow the main Gaussian and the noise level to relax into better fits for the low and high frequencies, respectively. First, we try adding a second autoregressive noise function, second, we try adding a second Gaussian curve, and third we try adding the PSD of a folded normal distribution (FND):
 \begin{equation}
 P_{FND} = P_{0_{FND}} \cdot e^{-(k \cdot \sigma_{FND})^2} \cdot |\left[1 - \Phi(-i k \sigma_{FND})\right]|^2,
 \end{equation}
 where $\Phi(\sigma_{FND}) = 1/2\cdot \mathrm{erfc}(-\sigma_{FND}/2) $. Here $P_0$ and $\sigma_{FND}$ are the
-two parameters that are being estimated from the fitting.
-The justification of fitting a folded normal distribution is that it assimilates memory induced by
+two parameters that are being estimated from the fitting. The justification of fitting a folded normal distribution is that it assimilates memory induced by
 the CFA system.
-
-Our goal here is not to explain physically what this part of the spectrum represents,
-but simply to find the optimal parameterization to fit the data spectrum.
-The optimal parameterization will allow the firn Gaussian to better fit the lower-frequency part of the spectrum,
-and thus to get a better estimate of diffusion length compared to Figure \ref{1_gauss}.
-
-
-%%%%%%%% Christian worked on the upper part
-
-
-\section{Parameterizing the Multi-Function Fit}
-In order to best fit the spectra of CFA data, we try three different parameterizations of a multi-function fit. In addition to the Gaussian that represents firn diffusion and the autoregressive noise function, we try adding a third function to the total fit to take up any slack in the fit and allow the main Gaussian and the noise level to relax into better fits for the low and high frequencies, respectively. First, we try adding a second autoregressive noise function, second, we try adding a second Gaussian curve, and third we try adding a cumulative Gaussian curve (Christian, is this the right name?). Our goal here is not to explain physically what this part of the spectrum represents, but simply to find the optimal parameterization to fit the data spectrum. The optimal parameterization will allow the firn Gaussian to better fit the lower-frequency part of the spectrum, and thus to get a better estimate of diffusion length compared to Figure \ref{1_gauss}.
+Our goal here is not to explain physically what this part of the spectrum represents, but simply to find the optimal parameterization to fit the data spectrum. The optimal parameterization will allow the firn Gaussian to better fit the lower-frequency part of the spectrum, and thus to get a better estimate of diffusion length compared to Figure \ref{1_gauss}.
 
 Figure \ref{GRR_fit} shows the parameterization that sums a Gaussian curve and two autoregressive noise functions to create a total fit for the data spectrum. With the inclusion of this second Gaussian in both WDC and SPC, the total fit is visually improved, as compared to the single-Gaussian fit in Figure \ref{1_gauss}. Figure \ref{2_gauss} shows the parameterization that sums two Gaussian curves and one autoregressive noise function. Similarly, there is a visual improvement in the total fit as compared to the single-Gaussian fit. Finally, Figure \ref{cum_gauss} shows the parameterization that sums one Gaussian, one autoregressive noise function, and one cumulative Gaussian function.
 
