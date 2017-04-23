@@ -323,12 +323,9 @@ Our goal here is not to explain physically what this part of the spectrum repres
 
 Figure \ref{GRR_fit} shows the parameterization that sums a Gaussian curve and two autoregressive noise functions to create a total fit for the data spectrum. With the inclusion of this second Gaussian in both WDC and SPC, the total fit is visually improved, as compared to the single-Gaussian fit in Figure \ref{1_gauss}. Figure \ref{2_gauss} shows the parameterization that sums two Gaussian curves and one autoregressive noise function. Similarly, there is a visual improvement in the total fit as compared to the single-Gaussian fit. Finally, Figure \ref{cum_gauss} shows the parameterization that sums one Gaussian, one autoregressive noise function, and one cumulative Gaussian function.
 
-To determine which of these three parametrizations best fits the data, we tested the RMS (?) of the fit for all spectra through the WDC core. Figure \ref{best_fit} (insert Christian's figure) shows the goodness of fit of each parameterization. The double-autoregressive parameterization is the least reliable, particularly in the early part of the record. The double-Gaussian parameterization and the cumulative Gaussian parameterization both fit the spectra very well throughout the record, with no significant difference between them. As its goodness of fit is indistinguishable from the cumulative Gaussian, we choose to continue with the double-Gaussian parameterization since its formulation is simpler.
-
-
 %------------------------------------------------
 %%%%%%%% Christian worked on the lower part
-\section{Results}
+\section{Results - Goodness of fits}
 The different fitting procedures are evaluated by calculating the adjusted goodness of fit ($\bar{R}^2$) between the spectra and parameterizations. The $\bar{R}^2$ is a goodness of fit estimation ($R^2$) that takes into account the number of fitted parameters ($p$):
 \begin{equation}
 \bar{R}^2 = 1 - (1 -R^2) \frac{n - 1}{n - p - 1},
@@ -336,40 +333,23 @@ The different fitting procedures are evaluated by calculating the adjusted goodn
 where $n$ is the sample size.
 The $\bar{R}^2$ values enables a comparison between the parameterizations that use six fitting parameters with
 the parameterization that uses five parameters (the addition of white noise).
-The $\bar{R}^2$ values are plotted as a function of age in Fig. \ref{G_of_fit_1}.
+The $\bar{R}^2$ values are plotted as a function of age in Figure \ref{G_of_fit_1}.
 It is evident that all the parameterizations provide good fits to the data,
 but the best fits are obtained with the extra Gaussian or the FND.
 For simplicity and computational efficiency, the Gaussian curve should be preferred over the FND.
 
 
-\section{Validation of results}
-The first way of examining the significance of the results are by comparing the diffusion length estimates from the
-noise adding method with the estimates from utilizing the parameterization method.
-In Fig. \ref{WAIS_diffusion_adding_noise}, the diffusion length estimates are plotted with respect to age.
-It is evident that both methods reconstruct similar diffusion lengths, but the noise adding method seems to be
-more stable in the glacial period. The higher stability is attributed to the fact that the measured water isotope signal
-seems to contain several noisy sections of half a meter or so, which will affect the spectra.
-By adding white noise to the data, the noisy sections cancel out hereby making the fitting more stable.
+\section{Validation of parameterization}
+The first way of examining the significance of the results is by comparing the diffusion length estimates from the noise adding method with the estimates from utilizing the parameterization method. In Figure \ref{WAIS_diffusion_adding_noise}, the diffusion length estimates are plotted with respect to age. It is evident that both methods reconstruct similar diffusion lengths, but the noise adding method seems to be more stable in the glacial period. The higher stability is attributed to the fact that the measured water isotope signal seems to contain several noisy sections of half a meter or so, which will affect the spectra. By adding white noise to the data, the noisy sections are masked, making the fit more stable.
 
-Another way of validating the results are by comparing with the diffusion length estimates presented in \cite{Jones2016}.
-This comparison is made in Fig. \ref{WAIS_diffusion_lengths} and \ref{WAIS_diffusion_lengths_thinning_corr}.
+Another way of validating the results is by comparing with the diffusion lengths estimated with the cut-off technique presented in \cite{Jones2016}. While the cut-off technique requires the choice of cut-off frequency and is less efficient, it avoids the effect of the transition zone because that part of the spectrum is not included in the fit. Since these results are not affected by the transition zone in the spectrum, we can use them as a benchmark with which to validate the effectiveness of the double-Gaussian fit.
+This comparison is made in Figures \ref{WAIS_diffusion_lengths} and \ref{WAIS_diffusion_lengths_thinning_corr}.
 It is evident that the estimated diffusion lengths from this paper are very similar to the presented results in \cite{Jones2016}.
-There is a few peaks that stand out such as an age of around 12,000 years. These peaks were not found in \cite{Jones2016} likely due
-to their lower resolution (not a moving window).
+There are a few peaks that stand out such as an age of around 12,000 years. These peaks were not found in \cite{Jones2016} likely due
+to their lower resolution (not a moving window). (Can we say anything about TAC here?)
 
 
 %%%%%%%% Christian worked on the upper part
-
-%------------------------------------------------
-
-\section{Validation of Double-Gaussian Parameterization (results)}
-
-While the cut-off technique requires the choice of cut-off frequency and is less efficient, it avoids the effect of the transition zone because that part of the spectrum is not included in the fit. \citet{Jones2016} published a complete record of diffusion lengths from WAIS Divide using the cut-off technique, and the same technique has been performed on new ice core data from the South Pole. Since these results are not affected by the transition zone in the spectrum, we used them as a benchmark with which to validate the effectiveness of the double-Gaussian fit.
-
-Using the same CFA data sets as the cut-off technique, we applied the multi-function technique with both single- and double-Gaussian formulations to examine the effectiveness of the fits. Figure \ref{sigma_comp} shows comparisons of each technique for both WAIS Divide and South Pole data sets -- need to add WAIS results from Christian. For both ice cores the double-Gaussian formulation of the multi-function technique agrees well with the cut-off technique. Table \ref{correlationtable} summarizes the correlations between fits over the entire data sets. -- Include a table here to summarize how good the fit is quantatatively, especially in comparison with the single-Gaussian parameterization?
-
-
-
 %------------------------------------------------
 
 \section{Discussion}
