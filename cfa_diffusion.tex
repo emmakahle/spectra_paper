@@ -176,12 +176,10 @@ We examine high-resolution water isotope data sets from continous flow analysis 
 
 \section{Introduction}
 
-Anything more general here?
-
-\subsection{Water Isotopes in Ice Cores}
-
 To understand past and future climate change, water isotope data from ice cores have long been used as climate proxies, based on the temperature-dependent distillation of water isotope ratios (e.g. $\delta ^{18}O$) in the atmosphere (cite papers). This indirect method for obtaining temperature records through past glacial and interglacial cycles relies on empirical correlations that only approximate the physical processes involved. A more direct approach uses the signal of isotope diffusion preserved in the ice, overcoming the many issues related to conventional
 isotope ratios \citep{Johnsen2000}.
+
+\subsection{Stable Water Isotope Diffusion}
 
 Water isotope diffusion occurs primarily in the firn layer, snowfall in the upper tens of meters of an ice sheet that has yet to be fully compressed into ice. As firn is permeable, water can diffuse through in the vapor phase, damping the seasonal variations and high-frequency noise of the original isotope signal. As the diffusion process depends on temperature, a temperature record can be obtained by measuring the extent of diffusion that has occurred. This method is independent of conventional assumptions about isotope fractionation before deposition, and thus improves on conventional ice core temperature methods. Beyond information about past temperature, diffusion estimates also provide constraints on past firn conditions and total ice thinning. With these motivations, estimations of diffusion have been made for ice cores in both Greenland and Antarctica \citep{Johnsen2000,Simonsen2011,Gkinis2014,Jones2016}.
 
@@ -202,8 +200,6 @@ We use data from the WAIS Divide and South Pole ice cores, both measured at the 
 \section{Diffusion Theory}
 
 From the fundamental physics of advection and diffusion, the effects on the profile of water isotopes in the ice core can be described mathematically. The majority of water isotope diffusion occurs in the firn layer where interconnected air pathways allow water vapor to diffuse vertically through the firn column. After firn densification has sealed off the bubbles in the ice, vapor diffusion ceases and solid ice diffusion takes over, with a diffusivity orders of magnitude smaller than that of vapor diffusion.
-
-\subsection{Firn Diffusion}
 
 The isotopic profile changes through the firn layer of an ice sheet due to the affects of diffusion across isotopic gradients and densification of the firn. As stated by \citet{Johnsen1977} and subsequently used in several diffusion studies (\citep{Johnsen2000, Simonsen2011, Gkinis2014, VanderWel2015, Jones2016, Holme2017}), these changes to the isotopic profile can be described by Fick's second law, the basic advection-diffusion equation:
 \begin{equation}
@@ -239,9 +235,6 @@ Following \citet{Gkinis2014}, Equation \ref{eq:sigma_differential} can be solved
   \sigma^2(\rho) = \frac{1}{\rho^2} \int^{\rho}_{\rho_0} 2 \rho^2 \left(\frac{d\rho}{dt}\right)^{-1} D(\rho) d\rho
 \end{equation}
 
-\subsection{Solid Ice Diffusion}
-
-After firn diffusion has ceased below the close-off depth, the isotopic profile in the ice core is affected, to a much smaller extent, by solid ice diffusion.
 
 %------------------------------------------------
 
@@ -275,7 +268,7 @@ In this study we follow the fitting approach of \citet{Gkinis2014}, which uses a
 
 The multi-function technique has been used effectively to estimate diffusion lengths on many discretely sampled data sets \citep{Gkinis2014,Holme2017}. It has been used on short sections of CFA data sets, but in some cases required extra boundary conditions in the parameterizations. However, when applying this technique to newer CFA data sets with a higher signal to noise ratio, the transition zone in the CFA spectra affects the ability to effectively fit a Gaussian to the data. Figure \ref{1_gauss} illustrates this issue with examples of CFA spectra from WAIS Divide and from South Pole. The presence of the transition zone force both the Gaussian and noise functions to attempt to accommodate that part of the spectrum. The Gaussian function is pulled to a greater standard deviation, corresponding to a smaller diffusion length, and the noise level is raised slightly at lower frequencies.
 
-%%%%%%%% Christian worked on the lower part
+\section{Improving the fit}
 In order to best fit the spectra of CFA data, we have examined two different approaches. The first approach removes the extra transition zone by masking it with white noise. The second approach parameterizes the total PSD by including an extra function in the fitting procedure. Both techniques are introduced and tested on ice core data from WDC and SPC.
 
 \subsection{Adding white noise}
@@ -308,10 +301,7 @@ We have plotted the gradient in diffusion length with respect to added noise in 
 For WDC, adding a mean noise level of $0.4 \, \permil$ for $\delta^{18}$O  and of $3.0 \,\permil$ for $\delta$D seem
 to be the most optimal solution.
 
-%%%%%%%% Christian worked on the upper part
-
-
-\section{Parameterizing a Multi-Function Fit or Parametrerizing the red noise transition}
+\subsection{Parameterizing a Multi-Function Fit or Parametrerizing the red noise transition}
 The second approach concerns a parameterization of the total spectrum. In order to best fit the spectra of CFA data, we try three different parameterizations of a multi-function fit of all frequencies. In addition to the Gaussian that represents firn diffusion and the autoregressive noise function, we try adding a third function to the total fit to take up any slack in the fit and allow the main Gaussian and the noise level to relax into better fits for the low and high frequencies, respectively. First, we try adding a second autoregressive noise function, second, we try adding a second Gaussian curve, and third we try adding the PSD of a folded normal distribution (FND):
 \begin{equation}
 P_{FND} = P_{0_{FND}} \cdot e^{-(k \cdot \sigma_{FND})^2} \cdot |\left[1 - \Phi(-i k \sigma_{FND})\right]|^2,
