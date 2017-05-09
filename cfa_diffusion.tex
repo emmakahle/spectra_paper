@@ -278,30 +278,34 @@ P_{FND} = P_{0_{FND}} \cdot e^{-(k \cdot \sigma_{FND})^2} \cdot |\left[1 - \Phi(
 \end{equation}
 where $\Phi(\sigma_{FND}) = 1/2\cdot \mathrm{erfc}(-\sigma_{FND}/2) $. Here $P_0$ and $\sigma_{FND}$ are the two parameters that are being estimated from the fitting. The justification of fitting a folded normal distribution is that it reflects the uni-directional combined memory and diffusion induced by the one-way flow of the CFA system. Our goal here is not to explain physically what the transition zones represents, but simply to find the optimal parameterization to fit the data spectrum. The optimal parameterization will allow the firn Gaussian to better fit the lower-frequency part of the spectrum, and thus to get a better estimate of diffusion length compared to Figure \ref{1_gauss}.
 
-Figure \ref{GRR_fit} shows the parameterization that sums a Gaussian curve and two autoregressive noise functions to create a total fit for the data spectrum. With the inclusion of this second Gaussian in both WDC and SPC, the total fit is visually improved, as compared to the single-Gaussian fit in Figure \ref{1_gauss}. Figure \ref{2_gauss} shows the parameterization that sums two Gaussian curves and one autoregressive noise function. Similarly, there is a visual improvement in the total fit as compared to the single-Gaussian fit. Finally, Figure \ref{folded_normal_gauss_spectrum} shows the parameterization that sums one Gaussian, one autoregressive noise function, and a folded normal distribution function.
+Figure \ref{GRR_fit} shows the parameterization that sums a Gaussian curve and two autoregressive noise functions to create a total fit for the data spectrum. With the inclusion of this third function in both WDC and SPC, the total fit is visually improved, as compared to the single-Gaussian fit in Figure \ref{1_gauss}. Figure \ref{2_gauss} shows the parameterization that sums two Gaussian curves and one autoregressive noise function. Similarly, there is a visual improvement in the total fit as compared to the single-Gaussian fit. Finally, Figure \ref{folded_normal_gauss_spectrum} shows the parameterization that sums one Gaussian, one autoregressive noise function, and a folded normal distribution function.
 
 %------------------------------------------------
 
-\section{Results - Goodness of fits}
-The different fitting procedures are evaluated by calculating the adjusted goodness of fit ($\bar{R}^2$) between the spectra and parameterizations. The $\bar{R}^2$ is a goodness of fit estimation ($R^2$) that takes into account the number of fitted parameters ($p$):
+\section{Evaluating fitting techniques}
+\subsection{Goodness of fit}
+The different fitting procedures in each technique are evaluated by calculating the adjusted goodness of fit ($\bar{R}^2$) between the spectra and parameterizations. The $\bar{R}^2$ is a goodness of fit estimation ($R^2$) that takes into account the number of fitted parameters ($p$):
 \begin{equation}
 \bar{R}^2 = 1 - (1 -R^2) \frac{n - 1}{n - p - 1},
 \end{equation}
 where $n$ is the sample size.
-The $\bar{R}^2$ values enables a comparison between the parameterizations that use six fitting parameters with
-the parameterization that uses five parameters (the addition of white noise).
-The $\bar{R}^2$ values are plotted as a function of age in Figure \ref{G_of_fit_1}.
-It is evident that all the parameterizations provide good fits to the data,
-but the best fits are obtained with the extra Gaussian or the FND.
-For simplicity and computational efficiency, the Gaussian curve should be preferred over the FND.
+The $\bar{R}^2$ values enables a comparison between the parameterizations that use six fitting parameters with the parameterization that uses five parameters (the addition of white noise). The $\bar{R}^2$ values are plotted as a function of age in Figure \ref{G_of_fit_1}. It is evident that all the parameterizations provide good fits to the data, but the best fits are obtained with the extra Gaussian and the FND. For simplicity and computational efficiency, we prefer the Gaussian curve over the FND.
+
+\subsection{Comparison of techniques}
+We use the WDC record to compare the diffusion length estimates between both techniques. In Figure \ref{WAIS_diffusion_adding_noise}, the diffusion length estimates are plotted with respect to age. Both methods reconstruct similar diffusion lengths, but the noise-adding method seems to be more stable in the glacial period. This stability is attributed to the fact that the measured water isotope signal seems to contain several noisy sections of half a meter or so in the glacial period, which will affect the shape of the spectra. By adding white noise to the data, the noisy data sections are masked, making the fit more stable.
+
+Another way of validating the results is by comparing with the diffusion lengths estimated by the cut-off technique presented in \cite{Jones2016}. While the cut-off technique requires the choice of cut-off frequency, it avoids the effect of the transition zone because that part of the spectrum is not included in the fit. Since these results are not affected by the transition zone, we can use them as a benchmark with which to validate these new techniques. Figures \ref{WAIS_diffusion_lengths} and \ref{WAIS_diffusion_lengths_thinning_corr} show these comparisons. The estimated diffusion lengths from this paper are very similar to the presented results in \cite{Jones2016}. A few differences stand out in the comparison, such as the peak at an age of around 12,000 years before present. Likely, these differences were not found in \cite{Jones2016} due
+to the lower resolution of that diffusion length record.
+
+%------------------------------------------------
 
 
-\section{Validation of parameterization}
-The first way of examining the significance of the results is by comparing the diffusion length estimates from the noise adding method with the estimates from utilizing the parameterization method. In Figure \ref{WAIS_diffusion_adding_noise}, the diffusion length estimates are plotted with respect to age. It is evident that both methods reconstruct similar diffusion lengths, but the noise adding method seems to be more stable in the glacial period. The higher stability is attributed to the fact that the measured water isotope signal seems to contain several noisy sections of half a meter or so, which will affect the spectra. By adding white noise to the data, the noisy sections are masked, making the fit more stable.
+\section{Application Example: South Pole Glacial-Interglacial Temperature}
 
-Another way of validating the results is by comparing with the diffusion lengths estimated with the cut-off technique presented in \cite{Jones2016}. While the cut-off technique requires the choice of cut-off frequency and is less efficient, it avoids the effect of the transition zone because that part of the spectrum is not included in the fit. Since these results are not affected by the transition zone in the spectrum, we can use them as a benchmark with which to validate the effectiveness of the double-Gaussian fit. This comparison is made in Figures \ref{WAIS_diffusion_lengths} and \ref{WAIS_diffusion_lengths_thinning_corr}. It is evident that the estimated diffusion lengths from this paper are very similar to the presented results in \cite{Jones2016}.
-There are a few peaks that stand out such as an age of around 12,000 years. These peaks were not found in \cite{Jones2016} likely due
-to their lower resolution (not a moving window).
+The data set from the South Pole ice core provides new information about climate in central Antarctica. From previous ice cores in the climatically distinct East Antarctica and West Antarctica, we have temperature estimates based on conventional assumptions about Rayleigh distillation. However, model estimates do not match with temperature estimates. The South Pole spatially bridges the gap between those climatically distinct regions and diffusion-based temperature estimates will provide new insight into this model-data discrepancy.
+
+We use the method described above to calculate a first estimate of the glacial-interglacial temperature change at the South Pole. A complete water isotope data set is not yet available from the South Pole ice core, but we can use two 20-meter windows of data, from the Holocene and Late Glacial respectively, to make a diffusion-based estimate of the temperature change at this site. Using the adding-noise method, we calculate a change of about XX degrees, and using the multi-function parameterization method, we calculate a change of about 8 degrees C. These methods agree well with one another, and provide the first insight the glacial-interglacial change at the South Pole. With the complete water isotope data set in the future, we will be able to carefully calculate a temperature history, rather than only a temperature difference, to learn more about the climate in central Antarctica and how well it does or does not agree with model simulations.
+
 
 
 
@@ -331,15 +335,6 @@ Another possibility is that the red noise transition originates naturally in the
 
 The \citet{Johnsen2000} model has been shown to work well in capturing a bulk diffusion length by fitting a Gaussian curve to the data spectrum, but the added complexity of allowing a range of individual diffusion lengths could contribute to the red noise transition. Mathematically, the \citet{Johnsen2000} model matches a diffusion length and corresponding Gaussian curve to the bulk water isotopes in the firn in a given window of data. A model that allows individual molecules to experience a range of relative time spent in the vapor phase corresponds to a collection of Gaussian curves. Each Gaussian curve is weighted by the number of molecules that experienced that amount of diffusion and the collection of weighted Gaussian curves sum to a non-Gaussian filter. In theory, this collection is infinite as it represents an infinite range of possible amounts of time spent in the vapor phase. In practice, this inifite collection can be approximated by a finite collection. As shown above in the multi-function parameterization, perhaps as few as two Gaussian curves could sufficiently represent the infinite summation.
 
-
-%------------------------------------------------
-
-
-\section{Application Example: South Pole Glacial-Interglacial Temperature}
-
-The data set from the South Pole ice core provides new information about climate in central Antarctica. From previous ice cores in the climatically distinct East Antarctica and West Antarctica, we have temperature estimates based on conventional assumptions about Rayleigh distillation. However, model estimates do not match with temperature estimates. The South Pole spatially bridges the gap between those climatically distinct regions and diffusion-based temperature estimates will provide new insight into this model-data discrepancy.
-
-We use the method described above to calculate a first estimate of the glacial-interglacial temperature change at the South Pole. A complete water isotope data set is not yet available from the South Pole ice core, but we can use two 20-meter windows of data, from the Holocene and Late Glacial respectively, to make a diffusion-based estimate of the temperature change at this site. Using the adding-noise method, we calculate a change of about XX degrees, and using the multi-function parameterization method, we calculate a change of about 8 degrees C. These methods agree well with one another, and provide the first insight the glacial-interglacial change at the South Pole. With the complete water isotope data set in the future, we will be able to carefully calculate a temperature history, rather than only a temperature difference, to learn more about the climate in central Antarctica and how well it does or does not agree with model simulations.
 
 
 %------------------------------------------------
