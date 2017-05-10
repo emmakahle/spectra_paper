@@ -154,7 +154,7 @@ everyone else}
 
 \altaffiltext{1}{Department of Earth and Space Sciences, University of Washington, Seattle, Washington, USA.}
 
-\altaffiltext{2}{CIC}
+\altaffiltext{2}{The Niels Bohr Institute, Centre for Ice and Climate, Juliane Maries Vej 30, 2100 Copenhagen, Denmark}
 
 %----------------------------------------------------------------------------------------
 %	ABSTRACT
@@ -164,7 +164,7 @@ everyone else}
 
 \begin{abstract}
 
-We examine high-resolution water isotope data sets from continous flow analysis (CFA) of the West Antarctic Ice Sheet (WAIS) Divide (WDC) and South Pole (SPC) ice cores. Spectral analysis of water isotope data reveals damping of high-frequency variations associated with diffusive smoothing of the isotopic profile in the firn layer of an ice sheet. This diffusion of water isotope ratios in ice cores can provide information about past firn conditions. The data spectra of windowed sections of CFA data from WDC and SPC show different characteristics as compared with similar discretely-sampled data sets, affecting the estimation of high-frequency damping due to the firn diffusion process. The cause of this spectral difference is not known, but we suggest possible explanations in the CFA measurement system and in natural firn proceses. Without knowing the origin of this spectral difference, we can still parameterize a method to estimate the extent of diffusion in the spectra. In this study we use two modified techniques to estimate extent of diffusion in order to efficiently and accurately produce diffusion estimates for full ice core CFA data sets.
+We examine high-resolution water isotope data sets from continuous flow analysis (CFA) of the West Antarctic Ice Sheet (WAIS) Divide (WDC) and South Pole (SPC) ice cores. Spectral analysis of water isotope data reveals damping of high-frequency variations associated with diffusive smoothing of the isotopic profile in the firn layer of an ice sheet. This diffusion of water isotope ratios in ice cores can provide information about past firn conditions. The data spectra of windowed sections of CFA data from WDC and SPC show different characteristics as compared with similar discretely-sampled data sets, affecting the estimation of high-frequency damping due to the firn diffusion process. The cause of this spectral difference is not known, but we suggest possible explanations in the CFA measurement system and in natural firn proceses. Without knowing the origin of this spectral difference, we can still parameterize a method to estimate the extent of diffusion in the spectra. In this study we use two modified techniques to estimate extent of diffusion in order to efficiently and accurately produce diffusion estimates for full ice core CFA data sets.
 
 \end{abstract}
 
@@ -179,32 +179,32 @@ We examine high-resolution water isotope data sets from continous flow analysis 
 
 \section{Introduction}
 
-To understand past and future climate change, water isotope data from ice cores have long been used as climate proxies, based on the temperature-dependent distillation of water isotope ratios (e.g. $\delta^{18}\mathrm{O}$) in the atmosphere (cite papers). This indirect method for obtaining temperature records through past glacial and interglacial cycles relies on empirical correlations that only approximate the physical processes involved. A more direct approach uses the signal of isotope diffusion preserved in the ice, overcoming the many issues related to conventional
+To understand past and future climate change, water isotope data from ice cores have long been used as climate proxies, based on the temperature-dependent distillation of water isotope ratios (e.g. $\delta^{18}\mathrm{O}$) in the atmosphere (\citep{Epstein1951,Dansgaard1954,Dansgaard1964}). This indirect method for obtaining temperature records through past glacial and interglacial cycles relies on empirical correlations that only approximate the physical processes involved. A more direct approach uses the signal of isotope diffusion preserved in the ice, overcoming the many issues related to conventional
 isotope ratios \citep{Johnsen2000}.
 
 \subsection{Stable Water Isotope Diffusion}
 
-Water isotope diffusion occurs primarily in the firn layer, snowfall in the upper tens of meters of an ice sheet that has yet to be fully compressed into ice. As firn is permeable, water molecules can diffuse through in the vapor phase, damping the seasonal variations and high-frequency noise of the original isotope signal. As the diffusion process depends on temperature, a temperature record can be obtained by measuring the extent of diffusion that has occurred. This method is independent of conventional assumptions about isotope fractionation before deposition, and thus improves on conventional ice core temperature methods. Beyond information about past temperature, diffusion estimates also provide constraints on past firn conditions and total ice thinning. With these motivations, estimations of diffusion have been made for ice cores in both Greenland and Antarctica \citep{Johnsen2000,Simonsen2011,Gkinis2014,Jones2016}.
+Water isotope diffusion occurs primarily in the firn layer, snowfall in the upper tens of meters of an ice sheet that has yet to be fully compressed into ice. As firn is permeable, water molecules can diffuse through in the vapor phase, damping the seasonal variations and high-frequency noise of the original isotope signal. As the diffusion process depends on temperature, a temperature record can be obtained by measuring the extent of diffusion that has occurred \citep{Johnsen2000}. This method is independent of conventional assumptions about isotope fractionation before deposition, and thus improves on conventional ice core temperature methods. Beyond information about past temperature, diffusion estimates also provide constraints on past firn conditions and total ice thinning. With these motivations, estimations of diffusion have been made for ice cores in both Greenland and Antarctica \citep{Simonsen2011,Gkinis2014,vanderWel2015,Jones2017a}.
 
 \subsection{Continuous Flow Analysis}
 
-In the past, most ice core water isotope data have been measured discretely by melting vertical sections of the core. The isotope ratio of each discrete sample is measured on mass spectrometer or laser spectrometer. Recently, ice core water isotope measurements are often measured on continuous flow analysis (CFA) systems. These systems continously feed the water stable isotopes of the melting core directly into a laser spectrometer, yielding high resolution data more easily than a discrete measurement process. Depending on the amount of effort committed, discrete analyses can produce results ranging from one-meter for entire ice cores to 2.5-cm resolution for smaller sections of ice cores. Meanwhile, CFA analyses can easily produce results at half-cm resolution for an entire ice core record. This higher resolution greatly improves the ability to analyze diffusion lengths, which depend on information in the high frequencies of the data spectrum.
+In the past, most ice core water isotope data have been measured discretely by melting vertical sections of the core. The isotope ratio of each discrete sample is measured on mass spectrometer or laser spectrometer. Recently, ice core water isotope measurements are often measured on continuous flow analysis (CFA) systems. These systems continuously feed the water stable isotopes of the melting core directly into a laser spectrometer, yielding high resolution data more easily than a discrete measurement process \citep{Gkinis2011a,Emanuelsson2015,Jones2017b}. Depending on the amount of effort committed, discrete analyses can produce results ranging from one-meter for entire ice cores to 2.5-cm resolution for smaller sections of ice cores. Meanwhile, CFA analyses can easily produce results at half-cm resolution for an entire ice core record. This higher resolution greatly improves the ability to analyze diffusion lengths, which depend on information in the high frequencies of the data spectrum.
 
-A number of studies have estimated diffusion lengths from discretely sampled water isotopes (\citep{Johnsen2000,Simonsen2011,Gkinis2014,VanderWel2015}). While data spectra from discrete data match well with spectra from theoretically derived synthetic data \citep{Holme2017}, spectra from CFA data have an additional characteristic in the mid-frequency range ($5^{-1}$ to $10^{-1}$ cm$^{-1}$). Figure \ref{spectra_disVScfa} demonstrates this difference by comparing the power spectra of discretely and continuously measured data. The CFA data spectra have a transition zone of sloping red noise from the damped frequencies into the system noise. The highest resolution discretely-sampled data sets do not show this transition zone in the spectrum.
+A number of studies have estimated diffusion lengths from discretely sampled water isotopes (\citep{Johnsen2000,Simonsen2011,Gkinis2014,vanderWel2015}). While data spectra from discrete data match well with spectra from theoretically derived synthetic data \citep{Holme2017}, spectra from CFA data have an additional characteristic in the mid-frequency range ($10-40$ cycles/m $\approx 2.5-10$ cm ice). Figure \ref{spectra_disVScfa} demonstrates this difference by comparing the power spectra of discretely and continuously measured data. The CFA data spectra have a transition zone of sloping red noise from the damped frequencies into the system noise. The highest resolution discretely-sampled data sets do not show this transition zone in the spectrum.
 
 Since estimating diffusion length depends on the shape of the spectrum, the presence of this transition can affect diffusion results. In this paper we describe how to estimate diffusion lengths on CFA data without the effect of this transition. We start from the approaches developed in \citet{Johnsen2000} and \citet{Gkinis2014} and propose two adjusted techniques to accommodate CFA water isotope data.
 
 \subsection{Water Isotope Data}
 
-We use data from the WAIS Divide and South Pole ice cores, both measured at the Institute of Arctic and Alpine Research (INSTAAR) at the University of Colorado. INSTAAR uses a CFA system to measure the water isotope ratios of $\delta^{18}\mathrm{O}$, $\delta^{17}\mathrm{O}$, and $\delta\mathrm{D}$ at a resolution of half-cm. For complete details on the INSTAAR CFA system, see \citet{JonesCFA2016}. Other published discrete and continuous water isotope data sets from Greenland and Antarctic cores were compiled for comparison.
+We use data from the WAIS Divide and South Pole ice cores, both measured at the Institute of Arctic and Alpine Research (INSTAAR) at the University of Colorado. INSTAAR uses a CFA system to measure the water isotope ratios of $\delta^{18}\mathrm{O}$, $\delta^{17}\mathrm{O}$, and $\delta\mathrm{D}$ at a resolution of half-cm. For complete details on the INSTAAR CFA system, see \citet{Jones2017b}. Other published discrete and continuous water isotope data sets from Greenland and Antarctic cores presented in \citet{Oerter2004,Gkinis2011a,Steig2013,Svensson2015,Holme2017} were used for comparison.
 
 %------------------------------------------------
 
 \section{Diffusion Theory}
 
-The fundamental physics of advection and diffusion can describe mathematically the post-depositional effects on the profile of water isotopes in the ice core. The majority of water isotope diffusion occurs in the firn layer where interconnected air pathways allow water vapor to diffuse vertically through the firn column. After firn densification has sealed off bubbles in the ice, vapor diffusion ceases and solid ice diffusion takes over. The process in solid ice has a diffusivity orders of magnitude smaller than that of vapor diffusion, and we do not consider it in this study.
+The fundamental physics of advection and diffusion can describe mathematically the post-depositional effects on the profile of water isotopes in the ice core \citep{Johnsen1977}. The majority of water isotope diffusion occurs in the firn layer where interconnected air pathways allow water vapor to diffuse vertically through the firn column. After firn densification has sealed off bubbles in the ice, vapor diffusion ceases and solid ice diffusion takes over. The process in solid ice has a diffusivity orders of magnitude smaller than that of vapor diffusion, and we do not consider it in this study.
 
-The isotopic profile changes through the firn layer of an ice sheet due to the effects of diffusion across isotopic gradients and due to densification of the firn. As stated by \citet{Johnsen1977} and subsequently used in several diffusion studies (\citep{Johnsen2000, Simonsen2011, Gkinis2014, VanderWel2015, Jones2016, Holme2017}), these changes to the isotopic profile can be described by Fick's second law, the basic advection-diffusion equation:
+The isotopic profile changes through the firn layer of an ice sheet due to the effects of diffusion across isotopic gradients and due to densification of the firn. As stated by \citet{Johnsen1977} and subsequently used in several diffusion studies (\citep{Johnsen2000, Simonsen2011, Gkinis2014, vanderWel2015, Jones2017a, Holme2017}), these changes to the isotopic profile can be described by Fick's second law, the basic advection-diffusion equation:
 \begin{equation}
 \frac{\partial \delta}{\partial t}
 = D \frac{\partial ^2 \delta}{\partial z^2}
@@ -257,9 +257,19 @@ With the assumption that the initial isotope signal $\delta(z,0)$ can be approxi
 
 Appendix D derives this conversion factor. Repeating this method over consecutive windowed sections of data yields diffusion length estimates through the length of a core.
 
-Fitting the data spectrum is complicated when working with CFA data (refer back to Figure \ref{spectra_disVScfa}). \citet{Jones2016} avoids the effect of this transition zone noise by identifying the frequency at which the transition begins to affect the damping curvature of diffusion. The technique cuts off higher frequencies, and only includes lower frequencies in the Gaussian fit. Figure \ref{TylerWAISPole} shows examples of this cut-off technique for data from the WAIS Divide ice core (WDC) \citep{Jones2016} and from the South Pole ice core (SPC). This technique relies on the fact that the damping signal left by natural diffusion is not wiped out by this transition zone noise.
+Fitting the data spectrum is complicated when working with CFA data (refer back to Figure \ref{spectra_disVScfa}). \citet{Jones2017a} avoids the effect of this transition zone noise by identifying the frequency at which the transition begins to affect the damping curvature of diffusion. The technique cuts off higher frequencies, and only includes lower frequencies in the Gaussian fit. Figure \ref{TylerWAISPole} shows examples of this cut-off technique for data from the WAIS Divide ice core (WDC) \citep{Jones2017b} and from the South Pole ice core (SPC). This technique relies on the fact that the damping signal left by natural diffusion is not wiped out by this transition zone noise.
 
-In this study we follow the fitting approach of \citet{Gkinis2014}, which uses a least-squares technique to fit the summation of two functions to the spectra of ice core data. The first function is a Gaussian, representing the high-frequency damping of firn diffusion, and the second function is an autoregressive noise signal of order 1 (AR-1), representing baseline noise introduced by the measurement process. Adding together these two functions avoids having to choose a cut-off frequency for the fit. Since it does not require any subjective choices, this multi-function technique can be fully automated and produce results in less time and with less effort than the cut-off technique.
+In this study we follow the fitting approach of \citet{Gkinis2014}, which uses a least-squares technique to fit the summation of two functions ($P_s$) to the spectra of ice core data ($\mathbb{P}_s$) by varying the four 
+parameters $P_0$, $\sigma^2$, $a_1$ and $\sigma_{\mathrm{\eta}}^2$:
+\begin{equation}
+P_s =    P_0 {e}^{-k^2 \sigma^2} + \frac{\sigma_{\mathrm{\eta}}^2 \Delta}
+{\left| 1-a_1 \exp{\left( -i k  \Delta \right) } \right|^2} {},
+\label{eq:powerspectrum}
+\end{equation}
+where $a_1$ is the AR-1 coefficient, $\sigma_{\mathrm{\eta}}^2$ is the variance of the noise signal 
+and $\Delta$ is the sample size. The first function is a Gaussian, representing the high-frequency damping of firn diffusion,
+and the second function is an autoregressive noise signal of order 1 (AR-1), representing baseline noise introduced by measurement and post-depositional processes.
+Adding together these two functions avoids having to choose a cut-off frequency for the fit. Since it does not require any subjective choices, this multi-function technique can be fully automated and produce results in less time and with less effort than the cut-off technique.
 
 The multi-function technique has been used effectively to estimate diffusion lengths on many discretely sampled data sets \citep{Gkinis2014,Holme2017}. It has been used on short sections of CFA data sets, but in some cases required extra boundary conditions in the parameterizations. However, when applying this technique to newer CFA data sets with a higher signal to noise ratio, the transition zone in the CFA spectra affects the technique's ability to effectively fit a Gaussian to the data. Figure \ref{1_gauss} illustrates this issue with examples of CFA spectra from WDC and SPC. The presence of the transition zone force both the Gaussian and noise functions to attempt to accommodate the transition zone. The Gaussian function is pulled to a greater standard deviation, corresponding to a smaller diffusion length, and the noise level is raised slightly at lower frequencies. The poor fit of the data results in a poor representation of diffusion length.
 
@@ -272,7 +282,7 @@ The main difference between the new CFA data and the discrete data is the resolu
 We constructed a sensitivity test to quantify the best choice of noise level. The test uses a 500-year moving window. For each windowed section, 100 diffusion lengths are estimated by adding white noise with an increasing baseline to the data. A diffusion length estimate is available for each noise level as a function of age. By adding too much noise to the data we risk masking the climate signal. Hence, the optimal noise level is reached when the diffusion length estimates stop changing with increasing noise, when the gradient approaches 0. Fig \ref{added_noise_sensitivity} shows this gradient in diffusion length with respect to added noise. For WDC, adding a mean noise level of $0.4 \, \permil$ for $\delta^{18}$O  and of $3.0 \,\permil$ for $\delta$D seems to be the optimal solution.
 
 \subsection{Technique 2: Parameterizing a Multi-Function Fit}
-The second approach creates a parameterization of the total spectrum. In order to best fit the spectra of CFA data, we try three different parameterizations of a multi-function fit of all frequencies. In addition to the Gaussian that represents firn diffusion and the autoregressive function that represents the baseline noise, we add a third function to allow a better overall fit. We try three different functions and see which yields the best fits. First, we add a second autoregressive noise function, second, we add a second Gaussian curve, and third we add a folded normal distribution (FND):
+The second approach creates a parameterization of the total spectrum. In order to best fit the spectra of CFA data, we try three different parameterizations of a multi-function fit of all frequencies. In addition to the Gaussian that represents firn diffusion and the autoregressive function that represents the baseline noise in Eq. \ref{eq:powerspectrum}, we add a third function to allow a better overall fit. We try three different functions and see which yields the best fits. First, we add a second AR-1 function, second, we add a second Gaussian curve, and third we add a folded normal distribution (FND) \citep{Tsagris2014}:
 \begin{equation}
 P_{FND} = P_{0_{FND}} \cdot e^{-(k \cdot \sigma_{FND})^2} \cdot |\left[1 - \Phi(-i k \sigma_{FND})\right]|^2,
 \end{equation}
@@ -294,7 +304,7 @@ The $\bar{R}^2$ values enables a comparison between the parameterizations that u
 \subsection{Comparison of techniques}
 We use the WDC record to compare the diffusion length estimates between both techniques. In Figure \ref{WAIS_diffusion_adding_noise}, the diffusion length estimates are plotted with respect to age. Both methods reconstruct similar diffusion lengths, but the noise-adding method seems to be more stable in the glacial period. This stability is attributed to the fact that the measured water isotope signal seems to contain several noisy sections of half a meter or so in the glacial period, which will affect the shape of the spectra. By adding white noise to the data, the noisy data sections are masked, making the fit more stable.
 
-Another way of validating the results is by comparing with the diffusion lengths estimated by the cut-off technique presented in \cite{Jones2016}. While the cut-off technique requires the choice of cut-off frequency, it avoids the effect of the transition zone because that part of the spectrum is not included in the fit. Since these results are not affected by the transition zone, we can use them as a benchmark with which to validate these new techniques. Figures \ref{WAIS_diffusion_lengths} and \ref{WAIS_diffusion_lengths_thinning_corr} show these comparisons. The estimated diffusion lengths from this paper are very similar to the presented results in \cite{Jones2016}. A few differences stand out in the comparison, such as the peak at an age of around 12,000 years before present. Likely, these differences were not found in \cite{Jones2016} due
+Another way of validating the results is by comparing with the diffusion lengths estimated by the cut-off technique presented in \cite{Jones2017a}. While the cut-off technique requires the choice of cut-off frequency, it avoids the effect of the transition zone because that part of the spectrum is not included in the fit. Since these results are not affected by the transition zone, we can use them as a benchmark with which to validate these new techniques. Figures \ref{WAIS_diffusion_lengths} and \ref{WAIS_diffusion_lengths_thinning_corr} show these comparisons. The estimated diffusion lengths from this paper are very similar to the presented results in \cite{Jones2017a}. A few differences stand out in the comparison, such as the peak at an age of around 12,000 years before present. Likely, these differences were not found in \cite{Jones2017a} due
 to the lower resolution of that diffusion length record.
 
 %------------------------------------------------
@@ -319,9 +329,9 @@ While including a second Gaussian in the multi-function technique improves fit, 
 
 \subsection{Possible Noise Origin: CFA Measurement System}
 
-There are many possible sources of noise throughout the CFA measurement system that could contribute to the data spectrum between periods of 5 to 10 cm. Mixing and memory effects are known to occur throughout the system as sample water travels to the instrument through tubing and various reservoirs. \citet{JonesCFA2016} ran standards of ice through the CFA system and reported system-caused diffusion lengths of 0.7 cm and 0.8 cm for $\delta^{18}\mathrm{O}$ and $\delta\mathrm{D}$, respectively. However, system diffusion is unlikely to be the cause of the transition noise because, mathematically, it is expected to increase the total diffusion described by the main Gaussian, rather than add this sloping transition in the 5 to 10 cm period range.
+There are many possible sources of noise throughout the CFA measurement system that could contribute to the data spectrum between periods of 5 to 10 cm. Mixing and memory effects are known to occur throughout the system as sample water travels to the instrument through tubing and various reservoirs \citep{Gkinis2011a}. For WDC, \citet{Jones2017b} ran standards of ice through the CFA system and reported system-caused diffusion lengths of 0.7 cm and 0.8 cm for $\delta^{18}\mathrm{O}$ and $\delta\mathrm{D}$, respectively. However, system diffusion is unlikely to be the cause of the transition noise because, mathematically, it is expected to increase the total diffusion described by the main Gaussian, rather than add this sloping transition in the 5 to 10 cm period range.
 
-A second possible source of this red noise in the CFA system is the Picarro instrument. (Cite Gkinis thesis) showed that the Picarro measurement can be affected by variations in water concentration within the instrument cavity. The INSTAAR CFA system has been carefully calibrated and set up to ensure water concentrations remain at a level that does not affect the measurement. However, small fluctuations in water concentration could still add noise to the data even if they do not change the isotope values significantly. While INSTAAR has carefully calibrated to address this issue, the process could be more complex than we understand and remain important.
+A second possible source of this red noise in the CFA system is the Picarro instrument. \citet{Gkinis2011b} showed that the Picarro measurement can be affected by variations in water concentration within the instrument cavity. The INSTAAR CFA system has been carefully calibrated and set up to ensure water concentrations remain at a level that does not affect the measurement. However, small fluctuations in water concentration could still add noise to the data even if they do not change the isotope values significantly. While INSTAAR has carefully calibrated to address this issue, the process could be more complex than we understand and remain important.
 
 Errors in depth registration within the CFA system could produce noise in this frequency range. We tested this possibility by adding random noise to a depth series and inspecting the resulting frequency spectra. This test showed that this source of noise does/does not remain a possibility. (Section still in progress)
 
@@ -856,7 +866,10 @@ This is the conversion between the standard deviation $\sigma_{std}$ of the Gaus
 %----------------------------------------------------------------------------------------
 
 \begin{acknowledgments}
-This work was partially supported by a grant from the Spanish Ministry of Science and Technology.
+\textit{Vasileios needs the following paragraph:}
+The research leading to these results has received funding from the European Research Council under the
+European Union's Seventh Framework Programme (FP7/2007-2013) grant agreement \#610055 as part
+of the ice2ice project.
 \end{acknowledgments}
 
 %----------------------------------------------------------------------------------------
@@ -897,38 +910,153 @@ This work was partially supported by a grant from the Spanish Ministry of Scienc
   \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
   \urlstyle{rm}\Url}\fi
 
+
+\bibitem[{\textit{Dansgaard}(1954)}]{Dansgaard1954} Dansgaard, W. (1954),
+The $^{18}${O}-abundance in fresh water,
+\textit{Geochimica et Cosmochimica Acta}, \textit{6}(5-6), 241--260.
+
+\bibitem[{\textit{Dansgaard}(1964)}]{Dansgaard1964} Dansgaard, W. (1964),
+Stable isotopes in precipitation,
+\textit{Tellus B}, \textit{16}(4), 436--468.
+
+\bibitem[{\textit{Emanuelsson et~al.}(2015)}]{Emanuelsson2015} 
+Emanuelsson, B.~D., Baisden, W.~T., Bertler, N.~A.~N., Keller, E.~D. and V. Gkinis (2015),
+High-resolution continuous-flow analysis setup for water isotopic measurement from ice cores using laser spectroscopy,
+\textit{Atmospheric Measurement Techniques}, \textit{8}(7), 2869--2883.
+
+\bibitem[{\textit{Gkinis et~al.}(2011)}]{Gkinis2011a} 
+Gkinis, V., Popp, T.~J., Blunier, T., Bigler, M., Schupbach, S., Kettner, E. and S.~J. Johnsen (2011),
+Water isotopic ratios from a continuously melted ice core sample,
+\textit{Atmospheric Measurement Techniques}, \textit{4}(11), 2531--2542.
+
+\bibitem[{\textit{Gkinis}(2011)}]{Gkinis2011b} 
+Gkinis, V. (2011),
+{ High resolution water isotope data from ice cores},
+PhD thesis, University of Copenhagen.
+
+\bibitem[{\textit{Gkinis et~al.}(2014)}]{Gkinis2014} 
+Gkinis, V., Simonsen, S.~B., Buchardt, S.~L., White, J.~W.~C. and  B.~M. Vinther (2014),
+{Water isotope diffusion rates from the NorthGRIP ice core for the last 16,000 years - glaciological and paleoclimatic implications},
+\textit{Earth and Planetary Science Letters}, \textit{405}, 132--141.
+
+\bibitem[{\textit{Epstein et~al.}(1951)}]{Epstein1951} 
+Epstein, S., Buchsbaum, R., Lowenstam, H. and H.C. Urey (1951),
+Carbonate-water isotopic temperature scale,
+\textit{Geological Society of America Bulletin}, \textit{62}(4), 417--426.
+
 \bibitem[{\textit{Holme et~al.}(2017)}]{Holme2017}
 Holme, C., Gkinis, V., and B. M. ~Vinther (2017), Molecular
 diffusion of stable water isotopes in polar firn as a proxy
-for past temperatures, \textit{Journal}, \textit{number}(),
-from-to.
+for past temperatures, Submitted for publication in \textit{Geochimica et Cosmochimica Acta}.
 
-\bibitem[{\textit{Johnsen}(1977)}]{Johnsen1977}
-Johnsen, S. (1977), \textit{Integral Equation Methods in
-  Scattering Theory}, John Wiley, New York.
+\bibitem[{\textit{Jones et~al.}(2017a)}]{Jones2017a} 
+Jones, T.~R., Cuffey, K.~M., White, J.~W.~C., Steig, E.~J., Buizert, C., 
+Markle, B.~R., McConnell, J.~R. and M. Sigl (2017a),
+{Water isotope diffusion in the WAIS Divide ice core
+	during the Holocene and last glacial},
+\textit{J. Geophys. Res. Earth Surf.}, \textit{122}, 290–309.
 
-\bibitem[{\textit{Johnsen}(2000)}]{Johnsen2000}
+\bibitem[{\textit{Jones et~al.}(2017b)}]{Jones2017b} 
+Jones, T.~R., White, J.~W.~C., Steig, E.~J., Vaughn, B.~H., Morris, V., 
+Gkinis, V., Markle, B.~R. and S.~W. Schoenemann (2017b),
+{Improved Methodologies for Continuous Flow Analysis of Stable
+Water Isotopes in Ice Cores},
+\textit{Atmos. Meas. Tech. Discuss}, \textit{10}, 617–-632.
 
-\bibitem[{\textit{Simonsen et~al.}(2011)}]{Simonsen2011}
+\bibitem[{\textit{Johnsen}(1977)}]{Johnsen1977} 
+Johnsen, S.~J. (1977),
+{Stable Isotope Homogenization of Polar Firn and Ice},
+\textit{Isotopes and Impurities in Snow and Ice}, 201--219.
 
-\bibitem[{\textit{Gkinis et~al.}(2014)}]{Gkinis2014}
+\bibitem[{\textit{Johnsen et~al.}(2000)}]{Johnsen2000} 
+Johnsen, S.~J., Clausen, H.~B., Cuffey, K.~M., Hoffmann, G., Schwander, J. and T. Creyts (2000),
+{Diffusion of stable isotopes in polar firn and ice: the isotope effect in firn diffusion},
+\textit{Physics of Ice Core Records}, 121--140.
 
-\bibitem[{\textit{Van der Wel et~al.}(2015)}]{VanderWel2015}
+\bibitem[{\textit{Oerter et~al.}(2004)}]{Oerter2004} 
+Oerter, H., Graf, W., Meyer, H. and F. Wilhelms (2004),
+{The EPICA ice core Droning Maud Land: first results from stable-isotope measurements},
+\textit{Ann. Glaciol.}, \textit{39}, 307--312.
 
-\bibitem[{\textit{Jones}(2016)}]{Jones2016}
+\bibitem[{\textit{Simonsen et~al.}(2011)}]{Simonsen2011} 
+Simonsen, S.~B., Johnsen, S.~J., Popp, T.~J., Vinther, B.~M., Gkinis, V. and H. C. Steen-Larsen (2011),
+{Past surface temperatures at the NorthGRIP drill site from the difference in firn diffusion of water isotopes},
+\textit{Climate of the Past}, \textit{7}, 1327--1335.
 
-\bibitem[{\textit{Jones CFA}(2016)}]{JonesCFA2016}
+\bibitem[{\textit{Steig et~al.}(2013)}]{Steig2013} 
+Steig, E.~J., Ding, Q., White, J.~W.~C., Küttel, M., Rupper, S.~B., Neumann, T.~A., Neff, P.~D., Gallant, A.~J.~E., Mayewski, P.~A.,
+Taylor, K.~C., Hoffmann, G., Dixon, D.~A., Schoenemann, S. Markle B.~M., Schneider, D.~P., Fudge, T.~J., 
+Schauer, A.~J., Teel, R.~P., Vaughn, B., Burgener, L., Williams, J. and E. Korotkikh (2013),
+{Recent climate and ice-sheet change in West Antarctica compared to the past 2000 years},
+\textit{Nature Geoscience}, \textit{6}.
 
-\bibitem[{\textit{Hsiao et~al.}(1991)\textit{Hsiao, Stephan, and
-  Wendland}}]{StephanHsiao}
-Hsiao, G.~C., E.~P. Stephan, and W.~L. Wendland (1991), On the {D}irichlet
-  problem in elasticity for a domain exterior to an arc, \textit{J. Comput.
-  Appl. Math.}, \textit{34}(1), 1--19.
+\bibitem[{\textit{Svensson et~al.}(2015)}]{Svensson2015} 
+Svensson, A., Fujita, S., Bigler, M., Braun, M., Dallmayr, R., Gkinis, V.,
+Goto-Azuma, K., Hirabayashi, M., Kawamura, K., Kipfstuhl, S., Kjær, H.~A.,
+Popp, T., Simonsen, M., Steffensen, J.~P., Vallelonga, P. and Vinther, B.~M. (2015),
+{On the occurrence of annual layers in Dome Fuji ice core early Holocene Ice},
+{Climate of	the Past}, \textit{11}, 1127--1137.
 
-\bibitem[{\textit{Lu and Ando}(2012)}]{LuAndo}
-Lu, P., and M.~Ando (2012), Difference of scattering geometrical optics
-  components and line integrals of currents in modified edge representation,
-  \textit{Radio Sci.}, \textit{47},  RS3007, \doi{10.1029/2011RS004899}.
+
+\bibitem[{\textit{Tsagris et~al.}(2014)}]{Tsagris2014} 
+Tsagris, M., Beneki, C. and H. Hassani (2014),
+{On the Folded Normal Distribution},
+\textit{Mathematics}, \textit{2}, 12--28.
+
+\bibitem[{\textit{van der Wel et~al.}(2015)}]{vanderWel2015} 
+van der Wel, G., Fischer, H., Oerter, H., Meyer, H. and H. A. J. Meijer (2015),
+Estimation and calibration of the water isotope differential diffusion length in ice core records,
+\textit{The Cryosphere}, \textit{9}(4), 1601--1616.
+
+%\bibitem[{\textit{Hsiao et~al.}(1991)\textit{Hsiao, Stephan, and
+%		Wendland}}]{StephanHsiao}
+%Hsiao, G.~C., E.~P. Stephan, and W.~L. Wendland (1991), On the {D}irichlet
+%problem in elasticity for a domain exterior to an arc, \textit{J. Comput.
+%	Appl. Math.}, \textit{34}(1), 1--19.
+%
+
+
+
+%\bibitem[{\textit{Johnsen}(1977)}]{Johnsen1977}
+%Johnsen, S. (1977), \textit{Integral Equation Methods in
+%  Scattering Theory}, John Wiley, New York.
+
+
+
+
+
+%@Article{Dansgaard2,
+%	Title                    = {The $^{18}${O}-abundance in fresh water},
+%	Author                   = {W. Dansgaard},
+%	Journal                  = {Geochimica et Cosmochimica Acta},
+%	Year                     = {1954},
+%	Volume                   = {6},
+%	Number			= {5--6},
+%	Pages 			= {241--260}
+%}
+
+%\bibitem[{\textit{Johnsen}(2000)}]{Johnsen2000}
+
+%\bibitem[{\textit{Simonsen et~al.}(2011)}]{Simonsen2011}
+
+%\bibitem[{\textit{Gkinis et~al.}(2014)}]{Gkinis2014}
+%
+%\bibitem[{\textit{Van der Wel et~al.}(2015)}]{VanderWel2015}
+%
+%\bibitem[{\textit{Jones}(2016)}]{Jones2016}
+%
+%\bibitem[{\textit{Jones CFA}(2016)}]{JonesCFA2016}
+
+%\bibitem[{\textit{Hsiao et~al.}(1991)\textit{Hsiao, Stephan, and
+%  Wendland}}]{StephanHsiao}
+%Hsiao, G.~C., E.~P. Stephan, and W.~L. Wendland (1991), On the {D}irichlet
+%  problem in elasticity for a domain exterior to an arc, \textit{J. Comput.
+%  Appl. Math.}, \textit{34}(1), 1--19.
+%
+%\bibitem[{\textit{Lu and Ando}(2012)}]{LuAndo}
+%Lu, P., and M.~Ando (2012), Difference of scattering geometrical optics
+%  components and line integrals of currents in modified edge representation,
+%  \textit{Radio Sci.}, \textit{47},  RS3007, \doi{10.1029/2011RS004899}.
 
 \end{thebibliography}
 
