@@ -257,21 +257,21 @@ With the assumption that the initial isotope signal $\delta(z,0)$ can be approxi
 
 Appendix D derives this conversion factor. Repeating this method over consecutive windowed sections of data yields diffusion length estimates through the length of a core.
 
-Fitting the data spectrum is complicated when working with CFA data (refer back to Figure \ref{spectra_disVScfa}). \citet{Jones2017a} avoids the effect of this transition zone noise by identifying the frequency at which the transition begins to affect the damping curvature of diffusion. The technique cuts off higher frequencies, and only includes lower frequencies in the Gaussian fit. Figure \ref{TylerWAISPole} shows examples of this cut-off technique for data from the WAIS Divide ice core (WDC) \citep{Jones2017b} and from the South Pole ice core (SPC). This technique relies on the fact that the damping signal left by natural diffusion is not wiped out by this transition zone noise.
+Fitting the data spectrum is complicated when working with CFA data (refer back to Figure \ref{spectra_disVScfa}). \citet{Jones2017a} avoids the effect of this transition zone noise by identifying the frequency at which the transition begins to affect the damping curvature of diffusion. The technique cuts off higher frequencies, and only includes lower frequencies in the Gaussian fit. Figure \ref{cutoff} shows examples of this cut-off technique for data from the WAIS Divide ice core (WDC) \citep{Jones2017b} and from the South Pole ice core (SPC). This technique relies on the fact that the damping signal left by natural diffusion is not wiped out by this transition zone noise.
 
-In this study we follow the fitting approach of \citet{Gkinis2014}, which uses a least-squares technique to fit the summation of two functions ($P_s$) to the spectra of ice core data ($\mathbb{P}_s$) by varying the four 
+In this study we follow the fitting approach of \citet{Gkinis2014}, which uses a least-squares technique to fit the summation of two functions ($P_s$) to the spectra of ice core data ($\mathbb{P}_s$) by varying the four
 parameters $P_0$, $\sigma^2$, $a_1$ and $\sigma_{\mathrm{\eta}}^2$:
 \begin{equation}
 P_s =    P_0 {e}^{-k^2 \sigma^2} + \frac{\sigma_{\mathrm{\eta}}^2 \Delta}
 {\left| 1-a_1 \exp{\left( -i k  \Delta \right) } \right|^2} {},
 \label{eq:powerspectrum}
 \end{equation}
-where $a_1$ is the AR-1 coefficient, $\sigma_{\mathrm{\eta}}^2$ is the variance of the noise signal 
+where $a_1$ is the AR-1 coefficient, $\sigma_{\mathrm{\eta}}^2$ is the variance of the noise signal
 and $\Delta$ is the sample size. The first function is a Gaussian, representing the high-frequency damping of firn diffusion,
 and the second function is an autoregressive noise signal of order 1 (AR-1), representing baseline noise introduced by measurement and post-depositional processes.
 Adding together these two functions avoids having to choose a cut-off frequency for the fit. Since it does not require any subjective choices, this multi-function technique can be fully automated and produce results in less time and with less effort than the cut-off technique.
 
-The multi-function technique has been used effectively to estimate diffusion lengths on many discretely sampled data sets \citep{Gkinis2014,Holme2017}. It has been used on short sections of CFA data sets, but in some cases required extra boundary conditions in the parameterizations. However, when applying this technique to newer CFA data sets with a higher signal to noise ratio, the transition zone in the CFA spectra affects the technique's ability to effectively fit a Gaussian to the data. Figure \ref{1_gauss} illustrates this issue with examples of CFA spectra from WDC and SPC. The presence of the transition zone force both the Gaussian and noise functions to attempt to accommodate the transition zone. The Gaussian function is pulled to a greater standard deviation, corresponding to a smaller diffusion length, and the noise level is raised slightly at lower frequencies. The poor fit of the data results in a poor representation of diffusion length.
+The multi-function technique has been used effectively to estimate diffusion lengths on many discretely sampled data sets \citep{Gkinis2014,Holme2017}. It has been used on short sections of CFA data sets, but in some cases required extra boundary conditions in the parameterizations. However, when applying this technique to newer CFA data sets with a higher signal to noise ratio, the transition zone in the CFA spectra affects the technique's ability to effectively fit a Gaussian to the data. Figure \ref{GR_fits} illustrates this issue with examples of CFA spectra from WDC and SPC. The presence of the transition zone force both the Gaussian and noise functions to attempt to accommodate the transition zone. The Gaussian function is pulled to a greater standard deviation, corresponding to a smaller diffusion length, and the noise level is raised slightly at lower frequencies. The poor fit of the data results in a poor representation of diffusion length.
 
 \section{Improving the fit for CFA data}
 In order to best fit the spectra of CFA data, we examined two different approaches. The first approach removes the transition zone by masking it with white noise, allowing the spectra to be fit effectively by two functions. The second approach improves the multi-function technique by including an extra function in the parameterization. Both techniques are introduced and tested on ice core data from WDC and SPC.
@@ -286,9 +286,9 @@ The second approach creates a parameterization of the total spectrum. In order t
 \begin{equation}
 P_{FND} = P_{0_{FND}} \cdot e^{-(k \cdot \sigma_{FND})^2} \cdot |\left[1 - \Phi(-i k \sigma_{FND})\right]|^2,
 \end{equation}
-where $\Phi(\sigma_{FND}) = 1/2\cdot \mathrm{erfc}(-\sigma_{FND}/2) $. Here $P_0$ and $\sigma_{FND}$ are the two parameters that are being estimated from the fitting. The justification of fitting a folded normal distribution is that it reflects the uni-directional combined memory and diffusion induced by the one-way flow of the CFA system. Our goal here is not to explain physically what the transition zones represents, but simply to find the optimal parameterization to fit the data spectrum. The optimal parameterization will allow the firn Gaussian to better fit the lower-frequency part of the spectrum, and thus to get a better estimate of diffusion length compared to Figure \ref{1_gauss}.
+where $\Phi(\sigma_{FND}) = 1/2\cdot \mathrm{erfc}(-\sigma_{FND}/2) $. Here $P_0$ and $\sigma_{FND}$ are the two parameters that are being estimated from the fitting. The justification of fitting a folded normal distribution is that it reflects the uni-directional combined memory and diffusion induced by the one-way flow of the CFA system. Our goal here is not to explain physically what the transition zones represents, but simply to find the optimal parameterization to fit the data spectrum. The optimal parameterization will allow the firn Gaussian to better fit the lower-frequency part of the spectrum, and thus to get a better estimate of diffusion length compared to Figure \ref{GR_fits}.
 
-Figure \ref{GRR_fit} shows the parameterization that sums a Gaussian curve and two autoregressive noise functions to create a total fit for the data spectrum. With the inclusion of this third function in both WDC and SPC, the total fit is visually improved, as compared to the single-Gaussian fit in Figure \ref{1_gauss}. Figure \ref{2_gauss} shows the parameterization that sums two Gaussian curves and one autoregressive noise function. Similarly, there is a visual improvement in the total fit as compared to the single-Gaussian fit. Finally, Figure \ref{folded_normal_gauss_spectrum} shows the parameterization that sums one Gaussian, one autoregressive noise function, and a folded normal distribution function.
+Figure \ref{GRR_fits} shows the parameterization that sums a Gaussian curve and two autoregressive noise functions to create a total fit for the data spectrum. With the inclusion of this third function in both WDC and SPC, the total fit is visually improved, as compared to the single-Gaussian fit in Figure \ref{GR_fits}. Figure \ref{GGR_fits} shows the parameterization that sums two Gaussian curves and one autoregressive noise function. Similarly, there is a visual improvement in the total fit as compared to the single-Gaussian fit. Finally, Figure \ref{folded_normal_gauss_spectrum} shows the parameterization that sums one Gaussian, one autoregressive noise function, and a folded normal distribution function.
 
 %------------------------------------------------
 
@@ -919,27 +919,27 @@ The $^{18}${O}-abundance in fresh water,
 Stable isotopes in precipitation,
 \textit{Tellus B}, \textit{16}(4), 436--468.
 
-\bibitem[{\textit{Emanuelsson et~al.}(2015)}]{Emanuelsson2015} 
+\bibitem[{\textit{Emanuelsson et~al.}(2015)}]{Emanuelsson2015}
 Emanuelsson, B.~D., Baisden, W.~T., Bertler, N.~A.~N., Keller, E.~D. and V. Gkinis (2015),
 High-resolution continuous-flow analysis setup for water isotopic measurement from ice cores using laser spectroscopy,
 \textit{Atmospheric Measurement Techniques}, \textit{8}(7), 2869--2883.
 
-\bibitem[{\textit{Gkinis et~al.}(2011)}]{Gkinis2011a} 
+\bibitem[{\textit{Gkinis et~al.}(2011)}]{Gkinis2011a}
 Gkinis, V., Popp, T.~J., Blunier, T., Bigler, M., Schupbach, S., Kettner, E. and S.~J. Johnsen (2011),
 Water isotopic ratios from a continuously melted ice core sample,
 \textit{Atmospheric Measurement Techniques}, \textit{4}(11), 2531--2542.
 
-\bibitem[{\textit{Gkinis}(2011)}]{Gkinis2011b} 
+\bibitem[{\textit{Gkinis}(2011)}]{Gkinis2011b}
 Gkinis, V. (2011),
 { High resolution water isotope data from ice cores},
 PhD thesis, University of Copenhagen.
 
-\bibitem[{\textit{Gkinis et~al.}(2014)}]{Gkinis2014} 
+\bibitem[{\textit{Gkinis et~al.}(2014)}]{Gkinis2014}
 Gkinis, V., Simonsen, S.~B., Buchardt, S.~L., White, J.~W.~C. and  B.~M. Vinther (2014),
 {Water isotope diffusion rates from the NorthGRIP ice core for the last 16,000 years - glaciological and paleoclimatic implications},
 \textit{Earth and Planetary Science Letters}, \textit{405}, 132--141.
 
-\bibitem[{\textit{Epstein et~al.}(1951)}]{Epstein1951} 
+\bibitem[{\textit{Epstein et~al.}(1951)}]{Epstein1951}
 Epstein, S., Buchsbaum, R., Lowenstam, H. and H.C. Urey (1951),
 Carbonate-water isotopic temperature scale,
 \textit{Geological Society of America Bulletin}, \textit{62}(4), 417--426.
@@ -949,48 +949,48 @@ Holme, C., Gkinis, V., and B. M. ~Vinther (2017), Molecular
 diffusion of stable water isotopes in polar firn as a proxy
 for past temperatures, Submitted for publication in \textit{Geochimica et Cosmochimica Acta}.
 
-\bibitem[{\textit{Jones et~al.}(2017a)}]{Jones2017a} 
-Jones, T.~R., Cuffey, K.~M., White, J.~W.~C., Steig, E.~J., Buizert, C., 
+\bibitem[{\textit{Jones et~al.}(2017a)}]{Jones2017a}
+Jones, T.~R., Cuffey, K.~M., White, J.~W.~C., Steig, E.~J., Buizert, C.,
 Markle, B.~R., McConnell, J.~R. and M. Sigl (2017a),
 {Water isotope diffusion in the WAIS Divide ice core
 	during the Holocene and last glacial},
 \textit{J. Geophys. Res. Earth Surf.}, \textit{122}, 290–309.
 
-\bibitem[{\textit{Jones et~al.}(2017b)}]{Jones2017b} 
-Jones, T.~R., White, J.~W.~C., Steig, E.~J., Vaughn, B.~H., Morris, V., 
+\bibitem[{\textit{Jones et~al.}(2017b)}]{Jones2017b}
+Jones, T.~R., White, J.~W.~C., Steig, E.~J., Vaughn, B.~H., Morris, V.,
 Gkinis, V., Markle, B.~R. and S.~W. Schoenemann (2017b),
 {Improved Methodologies for Continuous Flow Analysis of Stable
 Water Isotopes in Ice Cores},
 \textit{Atmos. Meas. Tech. Discuss}, \textit{10}, 617–-632.
 
-\bibitem[{\textit{Johnsen}(1977)}]{Johnsen1977} 
+\bibitem[{\textit{Johnsen}(1977)}]{Johnsen1977}
 Johnsen, S.~J. (1977),
 {Stable Isotope Homogenization of Polar Firn and Ice},
 \textit{Isotopes and Impurities in Snow and Ice}, 201--219.
 
-\bibitem[{\textit{Johnsen et~al.}(2000)}]{Johnsen2000} 
+\bibitem[{\textit{Johnsen et~al.}(2000)}]{Johnsen2000}
 Johnsen, S.~J., Clausen, H.~B., Cuffey, K.~M., Hoffmann, G., Schwander, J. and T. Creyts (2000),
 {Diffusion of stable isotopes in polar firn and ice: the isotope effect in firn diffusion},
 \textit{Physics of Ice Core Records}, 121--140.
 
-\bibitem[{\textit{Oerter et~al.}(2004)}]{Oerter2004} 
+\bibitem[{\textit{Oerter et~al.}(2004)}]{Oerter2004}
 Oerter, H., Graf, W., Meyer, H. and F. Wilhelms (2004),
 {The EPICA ice core Droning Maud Land: first results from stable-isotope measurements},
 \textit{Ann. Glaciol.}, \textit{39}, 307--312.
 
-\bibitem[{\textit{Simonsen et~al.}(2011)}]{Simonsen2011} 
+\bibitem[{\textit{Simonsen et~al.}(2011)}]{Simonsen2011}
 Simonsen, S.~B., Johnsen, S.~J., Popp, T.~J., Vinther, B.~M., Gkinis, V. and H. C. Steen-Larsen (2011),
 {Past surface temperatures at the NorthGRIP drill site from the difference in firn diffusion of water isotopes},
 \textit{Climate of the Past}, \textit{7}, 1327--1335.
 
-\bibitem[{\textit{Steig et~al.}(2013)}]{Steig2013} 
+\bibitem[{\textit{Steig et~al.}(2013)}]{Steig2013}
 Steig, E.~J., Ding, Q., White, J.~W.~C., Küttel, M., Rupper, S.~B., Neumann, T.~A., Neff, P.~D., Gallant, A.~J.~E., Mayewski, P.~A.,
-Taylor, K.~C., Hoffmann, G., Dixon, D.~A., Schoenemann, S. Markle B.~M., Schneider, D.~P., Fudge, T.~J., 
+Taylor, K.~C., Hoffmann, G., Dixon, D.~A., Schoenemann, S. Markle B.~M., Schneider, D.~P., Fudge, T.~J.,
 Schauer, A.~J., Teel, R.~P., Vaughn, B., Burgener, L., Williams, J. and E. Korotkikh (2013),
 {Recent climate and ice-sheet change in West Antarctica compared to the past 2000 years},
 \textit{Nature Geoscience}, \textit{6}.
 
-\bibitem[{\textit{Svensson et~al.}(2015)}]{Svensson2015} 
+\bibitem[{\textit{Svensson et~al.}(2015)}]{Svensson2015}
 Svensson, A., Fujita, S., Bigler, M., Braun, M., Dallmayr, R., Gkinis, V.,
 Goto-Azuma, K., Hirabayashi, M., Kawamura, K., Kipfstuhl, S., Kjær, H.~A.,
 Popp, T., Simonsen, M., Steffensen, J.~P., Vallelonga, P. and Vinther, B.~M. (2015),
@@ -998,12 +998,12 @@ Popp, T., Simonsen, M., Steffensen, J.~P., Vallelonga, P. and Vinther, B.~M. (20
 {Climate of	the Past}, \textit{11}, 1127--1137.
 
 
-\bibitem[{\textit{Tsagris et~al.}(2014)}]{Tsagris2014} 
+\bibitem[{\textit{Tsagris et~al.}(2014)}]{Tsagris2014}
 Tsagris, M., Beneki, C. and H. Hassani (2014),
 {On the Folded Normal Distribution},
 \textit{Mathematics}, \textit{2}, 12--28.
 
-\bibitem[{\textit{van der Wel et~al.}(2015)}]{vanderWel2015} 
+\bibitem[{\textit{van der Wel et~al.}(2015)}]{vanderWel2015}
 van der Wel, G., Fischer, H., Oerter, H., Meyer, H. and H. A. J. Meijer (2015),
 Estimation and calibration of the water isotope differential diffusion length in ice core records,
 \textit{The Cryosphere}, \textit{9}(4), 1601--1616.
@@ -1126,17 +1126,72 @@ Estimation and calibration of the water isotope differential diffusion length in
 
 \newpage
 
+\begin{figure}[]
+	\centering
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{PSD_discrete_plus_cfa_v1.eps}
+
+	\end{minipage}%
+	\begin{minipage}{0.5\textwidth}
+		\centering
+		\indent\includegraphics[width=0.9\linewidth]{PSD_CFA_v1.eps}
+
+	\end{minipage}
+	\caption{Left figure: The normalized PSD of five discretely measured $\delta^{18}\mathrm{O}$ series
+	plotted together with the PSD of a $\delta^{18}\mathrm{O}$ WDC section. Right figure:
+	The normalized PSD of four continuously measured $\delta$D series}
+\label{spectra_disVScfa}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=\linewidth]{cutoff.eps}
+	\caption{Cut-off technique on WDC and SPC at 450-500m depth} \label{cutoff}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=\linewidth]{GR_fits.eps}
+	\caption{Single-Gaussian Multi-function fits for WDC and SPC at 450-500m depth} \label{GR_fits}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=.9\linewidth]{WAIS_spectrum_added_noise.eps}
+	\caption{PSD of $\delta$D for a WDC section (solid curves). Blue curve represents
+		the measured signal and the black curve represents the modified signal.
+		The dashed lines represent the fitted Gaussian function which
+		corresponds to the firn diffusion.} \label{WAIS_spectrum_added_noise}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=\linewidth]{added_noise_sensitivity.eps}
+	\caption{Gradient in estimated diffusion lengths with respect to noise level and age.} \label{added_noise_sensitivity}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=.9\linewidth]{GRR_fits.eps}
+\caption{WDC and SPC spectra fits with a single Gaussian and two autoregressive noise functions}\label{GRR_fits}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=.9\linewidth]{GGR_fits.eps}
+\caption{WDC and SPC spectra fits with double-Gaussian multi-function technique}\label{GGR_fits}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=1.1\linewidth]{folded_normal_gauss_spectrum.eps}
+	\caption{WDC and SPC spectra fits with double-Gaussian multi-function technique}\label{folded_normal_gauss_spectrum}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=.9\linewidth]{G_of_fit_1.eps}
+	\caption{The adjusted goodness of fit calculations through age. } \label{G_of_fit_1}
+\end{figure}
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{WAIS_diffusion_adding_noise.eps}
 	\caption{WDC diffusion lengths of $\delta^{18}$O (left) and $\delta$D (right).
 		The method that has an extra Gaussian is represented by the blue curve and
 		the addition of white noise is represented by the black curve.} \label{WAIS_diffusion_adding_noise}
-\end{figure}
-
-\begin{figure}
-	\includegraphics[width=\linewidth]{added_noise_sensitivity.eps}
-	\caption{Gradient in estimated diffusion lengths with respect to noise level and age.} \label{added_noise_sensitivity}
 \end{figure}
 
 \begin{figure}
@@ -1149,79 +1204,9 @@ Estimation and calibration of the water isotope differential diffusion length in
 	\caption{Thinning corrected WDC diffusion lengths compared of $\delta$D with \cite{Jones2016}} \label{WAIS_diffusion_lengths_thinning_corr}
 \end{figure}
 
-
-\begin{figure}[]
-	\centering
-	\begin{minipage}{.5\textwidth}
-		\centering
-		\includegraphics[width=0.9\linewidth]{PSD_discrete_plus_cfa_v1.eps}
-
-	\end{minipage}%
-	\begin{minipage}{0.5\textwidth}
-		\centering
-		\indent\includegraphics[width=0.9\linewidth]{PSD_CFA_v1.eps}
-		
-	\end{minipage}
-	\caption{Left figure: The normalized PSD of five discretely measured $\delta^{18}\mathrm{O}$ series
-	plotted together with the PSD of a $\delta^{18}\mathrm{O}$ WDC section. Right figure: 
-	The normalized PSD of four continuously measured $\delta$D series}
-\label{spectra_disVScfa}
-\end{figure}
-
-........................
-
-\begin{figure}
-\includegraphics[width=.9\linewidth]{1_gauss.eps}
-\caption{WDC and SPC spectra fits with single-Gaussian multi-function technique}\label{1_gauss}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=.9\linewidth]{GRR_fit.eps}
-\caption{WDC and SPC spectra fits with a single Gaussian and two autoregressive noise functions}\label{GRR_fit}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=.9\linewidth]{2_gauss.eps}
-\caption{WDC and SPC spectra fits with double-Gaussian multi-function technique}\label{2_gauss}
-\end{figure}
-
-\begin{figure}
-	\includegraphics[width=1.1\linewidth]{folded_normal_gauss_spectrum.eps}
-	\caption{WDC and SPC spectra fits with double-Gaussian multi-function technique}\label{folded_normal_gauss_spectrum}
-\end{figure}
-
-
-\begin{figure}
-\includegraphics[width=.9\linewidth]{sigma_comp.eps}
-\caption{Comparison of diffusion length $\sigma$ as calculated by cut-off technique and multi-function technique (single and double Gaussian) for WDC and SPC}\label{sigma_comp}
-\end{figure}
-
-\begin{figure}
-	\includegraphics[width=.9\linewidth]{G_of_fit_1.eps}
-	\caption{The adjusted goodness of fit calculations through age. } \label{G_of_fit_1}
-\end{figure}
-
 \begin{figure}
 	\includegraphics[width=.9\linewidth]{CFA_spectra.eps}
 	\caption{Normalized power spectral densities of $\delta$D records measured with different CFA systems. } \label{CFA_spectra}
-\end{figure}
-
-\begin{figure}
-	\includegraphics[width=.9\linewidth]{WAIS_spectrum_added_noise.eps}
-	\caption{PSD of $\delta$D for a WDC section (solid curves). Blue curve represents
-		the measured signal and the black curve represents the modified signal.
-		The dashed lines represent the fitted Gaussian function which
-		corresponds to the firn diffusion.} \label{WAIS_spectrum_added_noise}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=.9\linewidth]{sigma2.eps}
-\caption{Plot the $\sigma$ from the second Gaussian for WDC and SPC}\label{sigma2}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=.9\linewidth]{sigmadependence.eps}
-\caption{Showing how sigma2 depends on sigma1}\label{sigmadependence}
 \end{figure}
 
 \begin{figure}
