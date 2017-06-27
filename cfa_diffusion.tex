@@ -368,37 +368,33 @@ In this study we examine the diffusion of water-isotope data from the WAIS Divid
 
 \section{Analytical Derivation of Diffused Isotope Profile}
 
-Here is a complete derivation of the desired solution that I found in the slides of an MIT course ``Mathematical Methods for Engineers" from 2006, which I found at http://ocw.mit.edu/courses/mathematics/18-086-mathematical-methods-for-engineers-ii-spring-2006/readings/am54.pdf. I've written up the steps as outlined by the MIT course, but added in many more detailed steps that are omitted on the course slides.\\
+Previous diffusion studies outline the math behind diffusion theory, but do not include detailed derivations to support the equations. Here we present a detailed account of the theory to supplement that previous work.
 
-This derivation starts with the heat equation, with diffusivity D, and therefore is still not quite the solution I seek, which would also include an advection term. Equation (47) starts off with the basic heat equation.
+Here we derive the solution for the diffused isotopic profile (Equation \ref{eq:diff_sol} in main text) through depth and time. We begin with the fundamental heat equation:
 \begin{equation}
+  \label{eq:heat}
 \frac{\partial u}{\partial t}
 = D \frac{\partial ^2u}{\partial x^2}
 \end{equation}
-We can solve this PDE using the common technique of separation of variables. We assume that the solution \begin{math} u(x,t) \end{math} can be written as the product of two functions, one that depends only on \begin{math} t \end{math} and one that depends only on \begin{math} x \end{math}:
-\begin{equation}
+We can solve this partial differential equation using the common technique of separation of variables. We assume that the solution \begin{math} u(x,t) \end{math} can be written as the product of two functions, one that depends only on \begin{math} t \end{math} and one that depends only on \begin{math} x \end{math}:
+\begin{eqnarray*}
 u(x,t) = G(t)E(x)
-\end{equation}
-We can take derivatives of $u(x,t)$ this solution and rewrite equation (47) as
+\end{eqnarray*}
+We plug this solution for $u(x,t)$ into Equation \ref{eq:heat} to find:
 \begin{eqnarray}
 G'E = GE'' \\
-\frac{G'(t)}{G(t)} = \frac{E''(x)}{E(x)}
+\frac{G'(t)}{G(t)} = \frac{E''(x)}{E(x)} \label{eq:ratio}
 \end{eqnarray}
-Since these ratios are equal, they must be equal to some constant, and we can find a family of solutions that will satisfy equation (50):
+Since these ratios are equal, they must equal some constant, and we find a family of solutions that will satisfy Equation \ref{eq:ratio}:
 \begin{eqnarray}
 E(x) = De^{\imath kx} & E''(x) = -Dk^2e^{\imath kx} \\
 G(t) = e^{-k^2t} & G'(t) = -k^2 e^{-k^2t} \nonumber
 \end{eqnarray}
-\textit{check solutions:}
-\begin{eqnarray}
-\frac{G'(t)}{G(t)} = -k^2  \nonumber \\
-\frac{E''(x)}{E(x)} = -k^2  \nonumber
-\end{eqnarray}
-Now we can write our solution as
+Now we can write our solution $u(x,t)$ as:
 \begin{equation}
 u(x,t) = De^{\imath kx}e^{-k^2t}
 \end{equation}
-Now account for all solutions from all linear combinations by integrating over all $k$:
+We now account for all solutions from all linear combinations by integrating over all $k$:
 \begin{equation}
 u(x,t) = \frac{1}{2 \pi D}
 \int^\infty_{-\infty} \hat{u}_0 (k) e^{\imath kx} e^{-k^2t} \mathrm{d}k
@@ -406,7 +402,7 @@ u(x,t) = \frac{1}{2 \pi D}
 Here \begin{math}  \hat{u}_0 (k) \end{math} is included to satisfy the initial conditions \begin{math} u(x,0) \end{math} at \begin{math} t=0 \end{math}.\\
 \textit{check:}
 \begin{equation}
-u(x,0) = \frac{1}{2 \pi D} \int^\infty_{-\infty} \hat{u}_0 (k) e^{\imath kx} \mathrm{d}k \nonumber
+u(x,0) = \frac{1}{2 \pi D} \int^\infty_{-\infty} \hat{u}_0 (k) e^{\imath kx} dk \nonumber
 \end{equation}
 Using the definition of the inverse Fourier transform:
 \begin{equation}
