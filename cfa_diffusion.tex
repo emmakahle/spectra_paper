@@ -368,7 +368,7 @@ In this study we examine the diffusion of water-isotope data from the WAIS Divid
 
 \section{Analytical Derivation of Diffused Isotope Profile}
 
-Previous diffusion studies outline the math behind diffusion theory, but do not include detailed derivations to support the equations. Here we present a detailed account of the theory to supplement that previous work.
+Previous diffusion studies \citep{Johnsen2000, Gkinis2014} outline the math behind diffusion theory, but do not include detailed derivations to support the equations. Here we present a detailed account of the theory to supplement that previous work.
 
 Here we derive the solution for the diffused isotopic profile (Equation \ref{eq:diff_sol} in main text) through depth and time. We begin with the fundamental heat equation:
 \begin{equation}
@@ -396,245 +396,226 @@ u(x,t) = De^{\imath kx}e^{-k^2t}
 \end{equation}
 We now account for all solutions from all linear combinations by integrating over all $k$:
 \begin{equation}
+  \label{eq:gensolution}
 u(x,t) = \frac{1}{2 \pi D}
-\int^\infty_{-\infty} \hat{u}_0 (k) e^{\imath kx} e^{-k^2t} \mathrm{d}k
+\int^\infty_{-\infty} \hat{u}_0 (k) e^{\imath kx} e^{-k^2t} dk
 \end{equation}
-Here \begin{math}  \hat{u}_0 (k) \end{math} is included to satisfy the initial conditions \begin{math} u(x,0) \end{math} at \begin{math} t=0 \end{math}.\\
-\textit{check:}
+Here \begin{math}  \hat{u}_0 (k) \end{math} is included to satisfy the initial conditions \begin{math} u(x,0) \end{math} at \begin{math} t=0 \end{math}.
+
+We can test this solution by verifying that Equation \ref{eq:gensolution} yields $u(x,0)$ at $t=0$:
 \begin{equation}
+  \label{eq:initialcon}
 u(x,0) = \frac{1}{2 \pi D} \int^\infty_{-\infty} \hat{u}_0 (k) e^{\imath kx} dk \nonumber
 \end{equation}
-Using the definition of the inverse Fourier transform:
+By inspecting the definition of the inverse Fourier transform,
 \begin{equation}
-x(t) = \frac{1}{2 \pi D} \int^\infty_{-\infty} \hat{x} (\omega) e^{\imath \omega t} \mathrm{d}\omega \nonumber
+  \label{eq:invFT}
+x(t) = \frac{1}{2 \pi D} \int^\infty_{-\infty} \hat{x} (\omega) e^{\imath \omega t} d\omega, \nonumber
 \end{equation}
-Comparing the above, we find the right hand side is exactly equal to our arbitrary initial condition:
-\begin{equation}
-u(x,0) = u(x,0) \nonumber
-\end{equation}
-So we have successfully derived the general solution as shown in equation (53).
+and comparing with Equation \ref{eq:initialcon}, we recover the arbitrary initial condition $u(x,0)$. Thus Equation \ref{eq:gensolution} is the general solution to Equation \ref{eq:heat}.
 
-To derive the fundamental solution for a specified initial condition, let us first consider an initial condition that is a delta function, or a point source: \begin{math} u(x,0) = \delta (x) \end{math} at \begin{math} t=0 \end{math}. This is a nice initial condition because its Fourier transform is \begin{math} \hat{u}_0 (k) = 1 \end{math}.\\
-Plugging this initial condition into equation (53):
+To move from this general solution to the overall solution, we first find a fundamental solution for an initial condition of a point source of $u$. We use this fundamental solution for a point source to build the solution that applies to any initial condition. A point source is defined as a delta function: \begin{math} u(x,0) = \delta (x) \end{math} at \begin{math} t=0 \end{math}. This is a convenient initial condition because its Fourier transform is \begin{math} \hat{u}_0 (k) = 1 \end{math}.
+
+We plug this initial condition into Equation \ref{eq:gensolution}:
 \begin{equation}
-u(x,t) = \frac{1}{2 \pi D} \int^\infty_{-\infty} e^{\imath kx} e^{-k^2t} \mathrm{d}k
+  \label{eq:refinitial}
+u(x,t) = \frac{1}{2 \pi D} \int^\infty_{-\infty} e^{\imath kx} e^{-k^2t} dk,
 \end{equation}
-Next take the partial derivative with respect to $x$ of both sides:
+and we take the partial derivative with respect to $x$ of both sides:
 \begin{equation}
 \frac{\partial u}{\partial x} = \frac {1}{2 \pi D}
-\int^\infty_{-\infty} \imath k e^{\imath kx} e^{-k^2t} \mathrm{d}k
+\int^\infty_{-\infty} \imath k e^{\imath kx} e^{-k^2t} dk.
 \end{equation}
-
-Now rearrange to separate for integration by parts:
+Now we rearrange for integration by parts:
 \begin{equation}
 \frac{\partial u}{\partial x} = \frac {1}{2 \pi D}
-\int^\infty_{-\infty} \left( \imath e^{\imath kx} \right) \left(k e^{-k^2t} \right) \mathrm{d}k
+\int^\infty_{-\infty} \left( \imath e^{\imath kx} \right) \left(k e^{-k^2t} dk \right)
 \end{equation}
-
-where the first grouping will be \begin{math} u \end{math} and the second grouping will be \begin{math} dv \end{math}. To compute the integration by parts we have:
+where the first grouping will be \begin{math} u \end{math} and the second grouping will be \begin{math} dv \end{math}, such that:
 \begin{eqnarray}
 & u = \imath e^{\imath kx} & v=-\frac{1}{2t} e^{-k^2t} \nonumber \\
-& \frac{\mathrm{d}u}{\mathrm{d}k} = - xe^{\imath kx} & \frac{\mathrm{d}v}{\mathrm{d}k} = k e^{-k^2t} \nonumber
+& du = - xe^{\imath kx}dk & dv = k e^{-k^2t}dk \nonumber
 \end{eqnarray}
-
-From the equation for integration by parts,
-\begin{equation}
-\int^\infty_{-\infty} u \mathrm{d}v = \left(uv \right)^\infty_{-\infty}
-- \int^\infty_{-\infty} v \mathrm{d}u \nonumber
-\end{equation}
-
-we get:
+Using integration by parts, we get:
 \begin{equation}
 \frac{\partial u}{\partial x} = \frac{1}{2 \pi D} \left[ \left(- \imath e^{\imath kx}
 \frac{1}{2t} e^{-k^2} \right)^\infty_{-\infty} - \int^\infty_{-\infty} \frac {1}{2t}
-e^{-k^2t} xe^{\imath kx} \mathrm{d}k \right]
+e^{-k^2t} xe^{\imath kx} dk \right]
 \end{equation}
-
-The term on the left inside the square brackets goes to zero when evaluated from \begin{math} -\infty \end{math} to \begin{math} \infty \end{math}, and we are left with:
+The first term inside the square brackets goes to zero when evaluated from \begin{math} -\infty \end{math} to \begin{math} \infty \end{math}, and we are left with:
 \begin{equation}
+  \label{eq:partialx}
 \frac{\partial u}{\partial x} = - \frac{1}{4 \pi t D} \int^\infty_{-\infty}
-e^{-k^2t}xe^{\imath kx} \mathrm{d}k
+xe^{\imath kx}e^{-k^2t} dk
 \end{equation}
-
-Now compare equation (58) to the expression for \begin{math} u(x,t) \end{math} in equation (54) to see the simple result
+Now compare Equation \ref{eq:partialx} with Equation \ref{eq:refinitial} to see that:
 \begin{equation}
-\frac{\partial u}{\partial x} = - \frac{xu}{2t}
+\frac{\partial u}{\partial x} = - \frac{xu}{2t},
 \end{equation}
-
-This is now a linear ODE that is solved by:
+which is a linear ODE that is solved by:
 \begin{equation}
+  \label{eq:linODE}
 u = c e^{-x^2/4tD}
 \end{equation}
-
 We can solve for $c$ based on conservation of the initial condition through time:
 \begin{eqnarray}
-\int^\infty_{-\infty} u(x,t) \mathrm{d}x & = & \int^\infty_{-\infty} u(x,0) \mathrm{d}x  \nonumber \\
-& = & \int^\infty_{-\infty} \delta (x) \mathrm{d}x \nonumber \\
+\int^\infty_{-\infty} u(x,t) dx & = & \int^\infty_{-\infty} u(x,0) dx  \nonumber \\
+& = & \int^\infty_{-\infty} \delta (x) dx \nonumber \\
 & = & 1 \nonumber
 \end{eqnarray}
-
-Apply this conservation criterion to solve for $c$:
+We apply this conservation criterion to solve for $c$:
 \begin{eqnarray}
-\int^\infty_{-\infty} c e^{-x^2/4tD} \mathrm{d}x = 1 \\
-c = \frac{1}{\int^\infty_{-\infty} e^{-x^2/4tD} \mathrm{d}x}
+\int^\infty_{-\infty} c e^{-x^2/4tD} dx = 1 \\
+c = \frac{1}{\int^\infty_{-\infty} e^{-x^2/4tD} dx} \label{eq:c}
 \end{eqnarray}
-
-This is the integral of a Gaussian, which is known:
-\begin{equation}
-\int^\infty_{-\infty} e^{-ax^2} \mathrm{d}x = \sqrt{\frac{\pi}{a}} \nonumber
-\end{equation}
-
-Here \begin{math} a = \frac{1}{4tD} \end{math}, and thus we can solve for $c$ as
+The denomenator is the integral of a Gaussian, which in general is given by:
+\begin{eqnarray}
+\int^\infty_{-\infty} e^{-ax^2} dx = \sqrt{\frac{\pi}{a}} \nonumber
+\end{eqnarray}
+In Equation \ref{eq:c}, \begin{math} a = \frac{1}{4tD} \end{math}, and thus we can solve for $c$ as
 \begin{equation}
 c = \frac{1}{\sqrt{4tD \pi}}
 \end{equation}
-
-So now our solution to equation (60) can be written
+So now the solution to Equation \ref{eq:linODE} can be written:
 \begin{equation}
 u(x,t) = \frac{1}{\sqrt{4 \pi tD}} e^{-x^2/4tD}
 \end{equation}
+This is the fundamental solution from a point source (recall that the initial condition used in this solution was a delta function).
 
-This is the fundamental solution from a single point source (recall that our initial condition used in this solution was a single delta function).
-
-Now let us consider the possibility that our initial condition delta function is instead located a different point \begin{math} x = s \end{math}, such that
+To build towards an overall solution, let us now consider the possibility that our initial condition delta function is instead located a different point \begin{math} x = s \end{math}, such that:
+\begin{eqnarray}
+u(x,0) = \delta (x-s) \quad \mbox{at} \quad t=0. \nonumber
+\end{eqnarray}
+Then the argument of the exponential in our solution shifts by $s$, such that:
+\begin{eqnarray}
+e^{-x^2/4tD} \quad \mbox{becomes} \quad e^{-(x-s)^2/4tD}. \nonumber
+\end{eqnarray}
+Because of linearity, any initial condition \begin{math} u(x,0) \end{math} can be written as the combination of point sources at locations $s$:
+\begin{eqnarray}
+u(x,0) = \int_{all \; s} \delta (x-s) u(s,0) ds \nonumber
+\end{eqnarray}
+And finally, the solution for an initial condition extending over all points in $x$ can be written as an integral of the responses to delta functions at many locations $\delta(x-s)$:
 \begin{equation}
-u(x,0) = \delta (x-s) \quad \mbox{at} \quad t=0 \nonumber
+  \label{eq:difsol}
+u(x,t) = \frac{1}{\sqrt{4 \pi tD}} \int^{\infty}_{-\infty} u(x,0)
+e^{-(x-s)^2/4tD} ds
 \end{equation}
 
-Then the argument of the exponential in our solution shifts by $s$, i.e.
+Equation \ref{eq:difsol} gives the solution to the diffusion equation, which characterizes the diffusion of water isotopes in the firn layer. Because ice sheets also experience thinning that affects the water isotope profile, we multiply this equation by a thinning function $F(t)$ to account for this process:
 \begin{equation}
-e^{-x^2/4tD} \quad \mbox{becomes} \quad e^{-(x-s)^2/4tD} \nonumber
+  \label{eq:isoprofile}
+u(x,t) = \frac{1}{\sqrt{4 \pi tD}} F(t) \int^{\infty}_{-\infty} u(x,0)
+e^{-(x-s)^2/4tD} ds
 \end{equation}
 
-Because of linearity, any initial condition \begin{math} u(x,0) \end{math} can be written as the combination of point sources:
-\begin{equation}
-u(x,0) = \int_{all \; S} \delta (x-s) u(s,0) \mathrm{d}s \nonumber
-\end{equation}
-
-The solution for an initial condition extending over all points in $x$ can be written as an integral of the responses to $\delta(x-s)$:
-\begin{equation}
-u(x,t) = \frac{1}{\sqrt{4 \pi tD}} \int^{\infty}_{-\infty} u(s,0)
-e^{-(x-s)^2/4tD} \mathrm{d}s
-\end{equation}
-
-And finally we have the solution we have been looking for. The one exception is that this solution does not include the $S(t)$ term that accounts for the thinning of the ice because this solution was derived from the pure diffusion equation, without accounting for any advection.
-
-
-
+Equation \ref{eq:isoprofile} is the equation referenced in previous diffusion literature. This derivation has shown how to find this solution from the basic diffusion equation.
 
 %----------------------------------------------------------------
 \section{Statistical Derivation of Diffused Isotope Profile}
 
-Lasaga derives the same solution through a statistical framework, starting with the idea of a discrete random walk. A particle starts at \begin{math} z = 0 \end{math} and at each time step can move a distance \begin{math} L \end{math} either to the right with probability \begin{math} p \end{math} or to the left with probability \begin{math} q = 1-p \end{math}. We would like to know what the probability is that after \begin{math} N \end{math} steps the particle is at some position \begin{math} z = mL \end{math}, where \begin{math} -N \leq m \leq N \end{math}.
+The same solution can be derived through a statistical framework, based on describing diffusion as a discrete random walk, as described in \citet{Lasaga2014}. A particle starts at a depth of \begin{math} z = 0 \end{math} and at each time step can move a vertical distance \begin{math} L \end{math} either upward with probability \begin{math} p \end{math} or downward with probability \begin{math} q = 1-p \end{math}. We would like to know what the probability is that after \begin{math} N \end{math} steps the particle is at some position \begin{math} z = mL \end{math}, where \begin{math} -N \leq m \leq N \end{math}.
 
-Let us define the number of steps the particle takes to the right, \begin{math} n_R \end{math}, and the number of steps the particle takes to the left, \begin{math} n_L \end{math}. With these definitions we can write:
+Let us define the number of steps the particle takes upward, \begin{math} n_U \end{math}, and the number of steps the particle takes downward, \begin{math} n_D \end{math}. With these definitions we can write:
 \begin{equation}
-N = n_R + n_L \\
-m = n_R - n_L
+N = n_U + n_D \\
+m = n_U - n_D
 \end{equation}
 
 and thus:
 \begin{equation}
-n_R = \frac{1}{2} (N+m) \\
-n_L = \frac{1}{2} (N-m)
+n_U = \frac{1}{2} (N+m) \\
+n_D = \frac{1}{2} (N-m) \label{eq:numsteps}
 \end{equation}
 
-We can write the probability, \begin{math} P_N(m) \end{math} of arriving at position \begin{math} z = mL \end{math} after N steps as the product of the probability of taking a particular sequence of steps to that position, \begin{math} p^{n_R} q^{n_L} \end{math}, times the number of different sequences of steps that will end at that position (because multiple sequences of steps will end at the same $z$ position, i.e. RRRL, RRLR, RLRR, and LRRR all end at \begin{math} m=2 \end{math}):
+We can write the probability, \begin{math} P_N(m) \end{math} of arriving at position \begin{math} z = mL \end{math} after N steps as the product of the probability of taking a particular sequence of steps to that position, \begin{math} p^{n_U} q^{n_D} \end{math}, times the number of different sequences of steps that will end at that position (because multiple sequences of steps will end at the same $z$ position, i.e. UUUD, UUDU, UDUU, and DUUU all end at \begin{math} m=2 \end{math}):
 \begin{equation}
-P_N(m) = p^ {n_R} q^ {n_L} \frac{N!}{n_R! n_L!}
+  \label{eq:prob1}
+P_N(m) = p^ {n_U} q^ {n_D} \frac{N!}{n_U! n_D!}
 \end{equation}
 
-Plugging in equations (5) and (6),
+Plugging Equations \ref{eq:numsteps} into Equation \ref{eq:prob1},
 \begin{equation}
-P_N(m) = \frac{N!}{[\frac{1}{2}(N+m)]![\frac{1}{2}(N-m)]!} p^{n_R}q^{n_L}
+  \label{eq:prob2}
+P_N(m) = \frac{N!}{[\frac{1}{2}(N+m)]![\frac{1}{2}(N-m)]!} p^{n_U}q^{n_D}
 \end{equation}
 
-We can now make a couple of assumptions to simplify equation (8). First, we can assume that \begin{math} p=q= \frac{1}{2} \end{math}, that the particle is equally likely to step to the left or right. Second, we can assume that the particle has taken many steps (\begin{math} N \gg 1 \end{math}) and that the number of steps taken is much greater than the distance from the starting point (\begin{math} N \gg m \end{math}). With these assumptions, we can use Stirling's Approximation:
+We can now make a couple of assumptions to simplify Equation \ref{eq:prob2}. First, we assume that \begin{math} p=q= \frac{1}{2} \end{math}, that the particle is equally likely to step upward or downward. Second, we can assume that the particle has taken many steps (\begin{math} N \gg 1 \end{math}) and that the number of steps taken is much greater than the distance from the starting point (\begin{math} N \gg m \end{math}). With these assumptions, we can use Stirling's Approximation:
 \begin{equation}
 \ln n! = n \ln n - n + \frac{1}{2} \ln n + \frac{1}{2} \ln 2 \pi
 \end{equation}
-
-Rewrite equation (8) with this approximation and set \begin{math} p = q= \frac{1}{2} \end{math} to get:
-
+We rewrite Equation \ref{eq:prob2} with this approximation and set \begin{math} p = q= \frac{1}{2} \end{math} to get:
 \begin{eqnarray}
 \ln P_N(m) & = & N \ln N - \frac{1}{2} (N+m) \ln [\frac{1}{2}(N+m)] \nonumber \\
-& & - \frac{1}{2}(N - m) \ln[\frac{1}{2}(N-m)]+\frac{1}{2}\ln N - \frac{1}{2}\ln
-[\frac{1}{2}(N+m)] \\
-& & - \frac{1}{2} \ln[\frac{1}{2}(N-m)]- \frac{1}{2} \ln(2 \pi) + N \ln \frac{1}{2} \nonumber
+& = & - \frac{1}{2}(N - m) \ln[\frac{1}{2}(N-m)]+\frac{1}{2}\ln N - \frac{1}{2}\ln
+[\frac{1}{2}(N+m)] \nonumber \\
+& = & - \frac{1}{2} \ln[\frac{1}{2}(N-m)]- \frac{1}{2} \ln(2 \pi) + N \ln \frac{1}{2} \label{eq:prob2b}
 \end{eqnarray}
-
-Simplify with the following:
+We can also write the following:
 \begin{eqnarray}
+  \label{eq:prob3}
 \ln(N+m) & = & \ln \left[ N \left( 1 + \frac{m}{N} \right)\right] \\
  & = & \ln N + \ln \left(1+\frac{m}{N}\right) \nonumber
 \end{eqnarray}
-
 For small x,
-\begin{equation}
-\ln(1+x) \sim x - \frac{1}{2}x^2 \nonumber
-\end{equation}
-
+\begin{eqnarray}
+\ln(1+x) \sim x - \frac{1}{2}x^2, \nonumber
+\end{eqnarray}
 and thus,
+\begin{eqnarray}
+\ln \left(1+\frac{m}{N}\right) = \frac{m}{N} - \frac{1}{2}\frac{m^2}{N^2} \nonumber
+\end{eqnarray}
+So, Equation \ref{eq:prob3} becomes:
 \begin{equation}
-\ln \left(1+\frac{m}{N}\right) = \frac{m}{N} - \frac{1}{2}\frac{m^2}{N^2}
-\end{equation}
-
-So, equation (11) becomes:
-\begin{equation}
+  \label{eq:prob4}
 \ln(N+m) = \ln N + \frac{m}{N} - \frac{1}{2}\frac{m^2}{N^2}
 \end{equation}
-
 and, similarly,
 \begin{equation}
+  \label{eq:prob5}
 \ln(N-m) = \ln N - \frac{m}{N} - \frac{1}{2}\frac{m^2}{N^2}
 \end{equation}
 
-Plugging equations (13) and (14) into equation (10) and simplifying, we get:
+Plugging Equations \ref{eq:prob4} and \ref{eq:prob5} into Equation \ref{eq:prob2b} and simplifying, we get:
  \begin{equation}
  \ln P_N(m) = - \frac{1}{2} \ln N + \frac{1}{2} \ln 2 - \frac{1}{2} \ln \pi
 - \frac{m^2}{2N} + \frac {m^2}{2N^2}
 \end{equation}
-
 Neglecting the term of order \begin{math} \frac{1}{N^2} \end{math} and combining the remaining terms leaves us with:
-
 \begin{equation}
+\label{eq:prob6}
 P_N(m) = \left( \frac{1}{\pi N} \right)^{1/2} e^{-m^2/2N}
 \end{equation}
+Equation \ref{eq:prob6} describes the Gaussian curve expected from diffusion from a point source, based only on the assumption of a random walk of many steps.
 
-Equation (16) shows the Gaussian curve expected from diffusion from a point source, based only on the assumptions of a random walk and of many time steps.
-
-This equation describes only the discrete probability of the particle taking steps of size \begin{math} L \end{math}. If we want an expression for the continuous probability \begin{math} W(z,t) \end{math} that the particle will be at any point \begin{math} z \end{math} at time \begin{math} t \end{math}, we must generalize \begin{math} m \end{math} to \begin{math} z \end{math} and \begin{math} N \end{math} to \begin{math} t \end{math}.
-
-Define the relations:
+This equation describes only the discrete probability of the particle taking steps of size \begin{math} L \end{math}. If we want an expression for the continuous probability \begin{math} W(z,t) \end{math} that the particle will be at any point \begin{math} z \end{math} at any time \begin{math} t \end{math}, we must generalize \begin{math} m \end{math} to \begin{math} z \end{math} and \begin{math} N \end{math} to \begin{math} t \end{math}. We define the relations:
 \begin{equation}
-z = mL \qquad N = vt
+z = mL \qquad \mbox{and} \qquad N = vt
 \end{equation}
-
 where \begin{math} v \end{math} is the frequency of steps.
 
 Because the particle can only reach an even numbered position at an even time step or an odd numbered position at an odd time step (i.e. N and m are both even or both odd), \begin{math} P_N(m) \end{math} is the discrete probability of the particle being anywhere between \begin{math} z = mL \end{math} and \begin{math} z = (m+2)L \end{math}. Thus the discrete probability can be related to the continuous probability as:
 \begin{equation}
+  \label{eq:probrelate}
 P_N(m) = W(z,t)2L
 \end{equation}
 
-Using this relation and plugging in known expressions:
+Using this relation and plugging in known expressions we get:
 \begin{eqnarray}
 W(z,t) & = & \frac{P_N(m)}{2L} \nonumber \\
 & = & \frac{1}{2L} \left(\frac{2}{\pi N}\right)^{1/2} e^{-(m^2/2N)} \nonumber \\
 & = & \frac{1}{2L} \left(\frac{2}{\pi vt}\right)^{1/2} e^{-[(m^2/L^2)/2vt]} \nonumber \\
 & = & \frac{1}{(2 \pi L^2 vt)^{1/2}}e^{-(z^2/2vL^2t)}
 \end{eqnarray}
-
-And with the definition \begin{math} D \equiv \frac{1}{2} v L^2 \end{math},
+And with a new quantity \begin{math} D \equiv \frac{1}{2} v L^2 \end{math},
 \begin{equation}
 W(z,t) = \frac{1}{2\sqrt{\pi Dt}}e^{-(z^2/4Dt)}
 \end{equation}
 
-We now have an expression for the continuous probability of particles diffusing to a particular point at a particular time that originate from a point source. However, we would like to know what this solution will look like for a continuous source with spatial extent. Because the diffusion equation is linear, it obeys the law of superposition, and we can generalize our point source solution by treating a continuous source as the sum of individual source slabs of arbitrarily small width \begin{math} dz \end{math}.
+We now have an expression for the continuous probability of particles diffusing to a particular point at a particular time that originate from a point source. However, we would like to know the solution for a continuous source. Because the diffusion equation is linear, we can generalize our point source solution by treating a continuous source as the sum of individual source slabs of arbitrarily small width \begin{math} dz \end{math}, as we did in the first derivation.
 
 If our point of interest is located at \begin{math} z' \end{math} and one of the slabs making up the continuous source is located at \begin{math} z \end{math}, we can write the contribution of this single slab to the concentration of particles at point \begin{math} z' \end{math} as
 \begin{equation}
-c(z',t) = \frac{c_0}{2\sqrt{\pi Dt}} \exp \left(-\frac{(z' -z)^2}{4Dt}\right) \mathrm{d}z
+c(z',t) = \frac{c_0}{2\sqrt{\pi Dt}} \exp \left(-\frac{(z' -z)^2}{4Dt}\right) dz
 \end{equation}
 
 where \begin{math} c_0 \end{math} is the initial concentration at point \begin{math} z \end{math}.
@@ -642,28 +623,27 @@ where \begin{math} c_0 \end{math} is the initial concentration at point \begin{m
 We can sum the contributions from all the slabs making up the continuous source by integrating the above equation over the \begin{math} z \end{math} values of the entire source. For a source of infinite extent we get:
 \begin{equation}
 c(z',t) = \int^\infty_{-\infty} \frac{c_0}{2\sqrt{\pi Dt}}
-\exp \left(-\frac{(z' -z)^2}{4Dt}\right) \mathrm{d}z
+\exp \left(-\frac{(z' -z)^2}{4Dt}\right) dz
 \end{equation}
 
-Defining the diffusion length \begin{math} \sigma \equiv \sqrt{2Dt} \end{math}, pulling the constants outside the integral, and replacing \begin{math} c \end{math} with \begin{math} \delta \end{math}, \begin{math} z' \end{math} with \begin{math} z \end{math}, and \begin{math} z \end{math} with \begin{math} u \end{math}, we see that we have arrived at the solution presented by Johnsen in equation (2):
+Defining the diffusion length \begin{math} \sigma \equiv \sqrt{2Dt} \end{math}, pulling the constants outside the integral, and replacing \begin{math} c \end{math} with \begin{math} \delta \end{math}, \begin{math} z' \end{math} with \begin{math} z \end{math}, and \begin{math} z \end{math} with \begin{math} u \end{math}, we have again derived the solution for the diffused isotope profile:
 \begin{equation}
 \delta (z,t) = \frac{1}{\sigma \sqrt{2 \pi}}
 \int^\infty_{-\infty} \delta (z,0) \exp \left(\frac{-(z-u)^2}{2 \sigma ^2} \right)
 \mathrm{d}u
 \end{equation}
 
-The only difference between the above and equation (2) is the inclusion of the thinning function \begin{math} S(t) \end{math}, which is included as a correction for the ice thinning, which has not yet been taken into account by this statistical derivation. Otherwise, following Lasaga's statistical approach, we have now derived the same diffusion solution as presented in Johnsen.
-
 
 %----------------------------------------------------------------
 \section{Statistical Derivation of Diffusion Length}
 
-The diffusion length, \begin{math} \sigma \end{math}, which is the standard deviation of the Gaussian convolved with the original signal, can also be derived in a statistical manner. Lasaga starts by introducing the probability \begin{math} W(Z,\tau) \end{math} that an atom at position \begin{math} z \end{math} at time \begin{math} t \end{math} will be at position \begin{math} z + Z \end{math} at time \begin{math} t + \tau \end{math} through the effect of diffusion. If the concentration of profile at time \begin{math} t \end{math} is known everywhere, then the concentration after diffusion acting over \begin{math} \tau \end{math} amount of time can be written as:
+The diffusion length \begin{math} \sigma \end{math}, the average vertical distance moved by a water molecule, can also be derived in a statistical manner, as in \citet{Lasaga2014}. We start with \begin{math} W(Z,\tau) \end{math}, the probability that a molecule at position \begin{math} z \end{math} at time \begin{math} t \end{math} will diffuse to position \begin{math} z + Z \end{math} at time \begin{math} t + \tau \end{math}. If the concentration profile at time \begin{math} t \end{math} is known, then the concentration after \begin{math} \tau \end{math} amount of time can be written as:
 \begin{eqnarray}
+  \label{eq:concentration}
 c(z, t + \tau) = \sum_{all \quad Z} c(z - Z, t) W(Z, \tau)
 \end{eqnarray}
 
-This equation accounts for particles arriving at location \begin{math} z \end{math} from all other locations \begin{math} z - Z \end{math}. Expanding the concentration terms as a Taylor series,
+This equation accounts for particles arriving at location \begin{math} z \end{math} from all other locations \begin{math} z - Z \end{math}. We expand each concentration term as a Taylor series:
 \begin{eqnarray}
 c(z, t + \tau) = c(z,t)+ \tau \frac{\partial c}{\partial t} + \ldots
 \end{eqnarray}
@@ -672,142 +652,122 @@ and
 \begin{eqnarray}
 c(z-Z,t) = c(z,t) - Z \frac{\partial c}{\partial z} + \frac{Z^2}{2} \frac{\partial^2 c}{\partial z^2} + \ldots
 \end{eqnarray}
-
-Plugging these two concentration expressions into equation (68),
+Plugging these two concentration expressions into Equation \ref{eq:concentration}, we get:
 \begin{eqnarray}
+  \label{eq:concentration2}
 c(z,t)+ \tau \frac{\partial c}{\partial t} + \ldots  =
 c(z,t) \sum_{all \quad Z} W(Z,\tau) - \frac{\partial c}{\partial z}
 \sum_{all \quad Z} ZW(Z, \tau) \\
 + \frac{1}{2} \frac{\partial ^2 c}{\partial z^2}
 \sum_{all \quad Z} Z^2 W(Z, \tau) + \ldots \nonumber
 \end{eqnarray}
-
-The particles must exist somewhere in space at time \begin{math} \tau \end{math}, so by the definition of probability:
+We can create a constraint by knowing that the particles must exist somewhere in space at time \begin{math} \tau \end{math}. Thus, by the definition of probability:
 \begin{eqnarray}
-\sum_{all \quad Z} W(Z,\tau) = 1
+\sum_{all \; Z} W(Z,\tau) = 1
 \end{eqnarray}
-
-We can also use the definition of averages to write
+We can also use the definition of averages to write:
 \begin{eqnarray}
-\sum_{all \quad Z} ZW (Z,\tau) = \langle Z \rangle
+\sum_{all \; Z} ZW (Z,\tau) = \langle Z \rangle
 \end{eqnarray}
-
 and
 \begin{eqnarray}
-\sum_{all \quad Z} Z^2 W (Z,\tau) = \langle Z^2 \rangle
+\sum_{all \; Z} Z^2 W (Z,\tau) = \langle Z^2 \rangle
 \end{eqnarray}
-
-Here \begin{math} \langle \quad \rangle \end{math} represents a statistical average. We can now write the basic diffusion equation (1) as:
+where \begin{math} \langle \quad \rangle \end{math} represents a statistical average. With these definitions we can now write Equation \ref{eq:concentration2} as the basic diffusion equation:
 \begin{eqnarray}
+  \label{eq:heatcomp}
 \frac {\partial c}{\partial t}
 = \frac{\langle Z^2 \rangle}{2 \tau} \frac{\partial^2 c}{\partial z^2}
 - \frac{\langle Z \rangle}{\tau} \frac{\partial c}{\partial z}
 \end{eqnarray}
 
-Comparing equations (1) and (73), we can write new statistical expressions for the diffusion coefficient and the velocity:
+Comparing Equation \ref{eq:heatcomp} to the advection-diffusion equation:
 \begin{eqnarray}
-v = \frac{\langle Z \rangle}{\tau} \\
-D = \frac{\langle Z^2 \rangle}{2 \tau}
+  \frac {\partial c}{\partial t}
+  = D \frac{\partial^2 c}{\partial z^2}
+  - v \frac{\partial c}{\partial z},
+  \end{eqnarray}
+we can write new statistical expressions for the diffusion coefficient and the velocity:
+\begin{eqnarray}
+D = \frac{\langle Z^2 \rangle}{2 \tau} \label{eq:diffcoeff}\\
+v = \frac{\langle Z \rangle}{\tau}
 \end{eqnarray}
 
-Equation (75) can be rearranged as
+Equation \ref{eq:diffcoeff} can be rearranged as
 \begin{eqnarray}
 \langle Z^2 \rangle ^\frac{1}{2}
-= \sqrt{2D\tau} \\
-= \sigma \nonumber
+= \sqrt{2D\tau} \equiv \sigma \label{eq:difflen}
 \end{eqnarray}
 
-This equation is equivalent to the diffusion length \begin{math} \sigma \end{math}, which is used to describe the ``extent" of diffusion. Equation (76) gives some insight into the statistical meaning of the diffusion length as the root mean square of the vertical position.
+This equation is equivalent to the definition of diffusion length \begin{math} \sigma \end{math}, which is used to describe the ``extent" of diffusion. Equation \ref{eq:difflen} gives insight into the statistical meaning of the diffusion length as the root mean square of the vertical displacement.
 
-We can write equation (76) in its integrated form as:
-\begin{eqnarray}
-\sigma^2 = \int_0^t 2 D (\tau) \mathrm{d} \tau
-\end{eqnarray}
-
-Taking the derivative \begin{math} \frac{d}{dt} \end{math} of both sides:
-\begin{eqnarray}
-\frac{d\sigma^2}{dt} = 2 D(t)
-\end{eqnarray}
-
-And we can now compare to equation (6) from Gkinis et al 2014, based directly off of Johnsen 1977:
-\begin{eqnarray}
-\frac{d\sigma^2}{dt} - 2 \dot{\epsilon} \sigma ^2 = 2D(t)
-\end{eqnarray}
-
-Comparing equations (78) and (79), we have derived the same expression for sigma with the
-advection term neglected.
 
 %----------------------------------------------------------------
-\section{Derivation of Sigma Conversion Factor}
+\section{Derivation of Diffusion Length Conversion}
 
-This section derives the conversion factor between the standard deviation of the Gaussian in frequency space and the sigma diffusion length in the depth domain.
-
-We start with the Gaussian (Green's Function) that describes diffusion:
+This section derives the conversion factor between the standard deviation of the Gaussian function in frequency space and the diffusion length in the depth domain. We start with the Gaussian function in the depth domain that describes the convolution of diffusion:
 \begin{equation}
-  G = \sqrt{\frac{1}{2\pi\sigma^{2}}} \exp\left(\frac{-x^{2}}{2\sigma^{2}}\right)
+  \label{eq:gaussianD}
+  G = \sqrt{\frac{1}{2\pi\sigma^{2}}} \exp\left(\frac{-z^{2}}{2\sigma^{2}}\right)
 \end{equation}
+where $z$ is depth and $\sigma$ is diffusion length. The convolution becomes multiplications when the Gaussian is transformed into the frequency domain.
 
-This Gaussian is convolved with the original isotope signal in depth/time space to yield the diffused signal. Alternatively, this Gaussian can be Fourier transformed into frequency space to easily multiply the fft of the signal to, equivalently, yield the diffused signal.
-
-The definition of transforming a Gaussian to frequency space is simple:
+The definition of transforming a Gaussian from the depth domain to the frequency domain is simple:
 \begin{equation}
-  g(x) = \sqrt{\frac{\pi}{a}}\exp\left(\frac{-\pi^{2}x^{2}}{a}\right)
+  g(z) = \sqrt{\frac{\pi}{a}}\exp\left(\frac{-\pi^{2}z^{2}}{a}\right)
   \Rightarrow
   \hat{g}(f) = \exp\left(-af^{2}\right)
 \end{equation}
-
-From Eq (1) above, we can solve for $a$ by
-\begin{equation}
+From Equation \ref{eq:gaussianD} above, we can solve for $a$ by
+\begin{eqnarray*}
   \sqrt{\frac{1}{2\pi\sigma^{2}}} = \sqrt{\frac{\pi}{a}} \\
   a = 2\pi^{2}\sigma^{2}
-\end{equation}
-
-This expression for $a$ yields the Gaussian we began with in (1). Now we can find the Fourier transform of (1) using the definition in (2).
+\end{eqnarray*}
+Now we can find the Fourier transform of Equation \ref{eq:gaussianD}:
 \begin{equation}
+  \label{eq:gaussianF}
   \hat{G}(f) = \exp\left(-2\pi^{2}\sigma^{2}f^{2}\right)
 \end{equation}
-
-We can use this to find, for some frequency, the amplitude $A_\sigma$ of the diffused signal from the amplitude $A_0$ of the original signal as follows:
+We can use this to find, for some frequency $f$, the amplitude $A_\sigma$ of the diffused signal from the amplitude $A_0$ of the original signal as follows:
 \begin{equation}
+  \label{eq:amp1}
   A_\sigma = A_0 \exp \left(-2 \pi^2 \sigma^2 f^2 \right)
 \end{equation}
 
-We now have $\hat{G}(f)$ but we want $\hat{G}(k)$, a Gaussian in terms of $k$, where $k$ is the wavenumber and $k = 2 \pi f$, or $f = \frac{k}{2\pi}$. Plugging in this definition of $k$, we get:
-\begin{equation}
+We now have $\hat{G}(f)$ but we want $\hat{G}(k)$, a Gaussian in terms of $k$, where $k$ is the wavenumber, and $k = 2 \pi f$, or $f = \frac{k}{2\pi}$. Plugging in this definition of $k$, we get:
+\begin{eqnarray}
   \hat{G}(k) = \exp\left(-2\pi^{2}\sigma^{2}\frac{k^{2}}{2^{2}\pi^{2}}\right)\\
   \hat{G}(k) = \exp\left(\frac{-k^{2}\sigma^{2}}{2}\right)
-\end{equation}
-
+\end{eqnarray}
 And again in terms of amplitude of a specific frequency,
 \begin{equation}
+  \label{eq:amp2}
   A_\sigma = A_0 \exp \left(\frac{-k^2\sigma^2}{2}\right)
 \end{equation}
 
-This result agrees with Eqs (14) and (15) in Gkinis et al 2014.\\
-As I've shown, the Gaussian filter yields the resulting amplitude of the diffused signal. In calculating diffusion length, we are fitting the power spectral density of the signal, and not the amplitude. Thus, we need to convert (6) and (8) to reflect the filter applied to the PSD rather than to the amplitude. Given that the power of a signal is defined as the square of the signal, we have
+As we've shown, the Gaussian filter in frequency space yields the resulting amplitude of the diffused signal. However, in calculating diffusion length, we are fitting the power spectral density (PSD) of the signal, and not the amplitude. Thus, we need to convert Equations \ref{eq:amp1} and \ref{eq:amp2} to reflect the filter applied to the PSD rather than that applied to the amplitude. Given that the power of a signal is defined as the square of the signal, we have
 \begin{equation}
   P_\sigma = P_0 \exp \left(-4\pi^2\sigma^2f^2\right)
 \end{equation}
-
 and
 \begin{equation}
+  \label{eq:p_0}
   P_\sigma = P_0 \exp \left(-k^2 \sigma^2\right)
 \end{equation}
-
 where $P_0$ is the power spectral density of the original signal and $P_\sigma$ is the power spectral density of the diffused signal.
 
-Up to this point, $\sigma$ has remained consistent and still refers to the standard deviation of the Gaussian in the depth before the Fourier transform, which is the diffusion length. When fitting a Gaussian to the isotope data, we do so in the frequency domain. Thus our fit gives us standard deviation of the Gaussian in frequency space, $\sigma_{std}$, which is not the same as $\sigma$ diffusion length, the standard deviation of the Gaussian in the depth domain. We need to know how to convert from $\sigma_{std}$ back to $\sigma$, which tells us the standard deviation of (1), and thus diffusion length.
+Throughout this derivation, $\sigma$ refers to the standard deviation of the Gaussian in the depth before the Fourier transform, which is the diffusion length. However, when we fit a Gaussian curve to the isotope data in frequency space, we find $\varsigma$, the standard deviation of $\hat{G}$, the Gaussian in frequency space. The frequency domain $\varsigma$ is inversely related to $\sigma$ diffusion length, the standard deviation of the Gaussian in the depth domain. To calculate diffusion length $\sigma$ from the $\hat{G}$ fit, we need to convert from $\varsigma$ to $\sigma$.
 
-To find the standard deviation in frequency space, we must convert Eq (11) to be in the standard Gaussian form $G(f) = \exp\left(\frac{-f^{2}}{2\sigma_{std}^{2}}\right)$.
+To find the conversion factor between $\varsigma$ and $\sigma$, we must convert Equation \ref{eq:p_0} to be in the standard Gaussian form of $G(f) = \exp\left(\frac{-f^{2}}{2\varsigma^{2}}\right)$ and solve for $\sigma$ in terms of $\varsigma$.
 \begin{eqnarray}
-  \exp\left(-k^{2}\sigma^{2}\right) = \exp\left(\frac{-f^{2}}{2\sigma_{std}^{2}}\right)\\
-  -k^{2}\sigma^{2} = \frac{-f^{2}}{2\sigma_{std}^{2}}\\
-  -2^{2}\pi^{2}f^{2}\sigma^{2} = \frac{f^{2}}{2\sigma_{std}^{2}} \\
-  \sigma^{2} = \frac{1}{2^{2}\pi^{2}2\sigma_{std}^{2}} \\
-  \sigma = \frac{1}{2\pi\sqrt{2}\sigma_{std}}
+  \exp\left(-k^{2}\sigma^{2}\right) = \exp\left(\frac{-f^{2}}{2\varsigma^{2}}\right)\\
+  -k^{2}\sigma^{2} = \frac{-f^{2}}{2\varsigma^{2}}\\
+  -2^{2}\pi^{2}f^{2}\sigma^{2} = \frac{f^{2}}{2\varsigma^{2}} \\
+  \sigma^{2} = \frac{1}{2^{2}\pi^{2}2\varsigma^{2}} \\
+  \sigma = \frac{1}{2\pi\sqrt{2}\varsigma}
 \end{eqnarray}
 
-This is the conversion between the standard deviation $\sigma_{std}$ of the Gaussian fit in the frequency domain,  and the diffusion length $\sigma$, the standard deviation of the Gaussian in the depth domain.
+This is the conversion between $\varsigma$, the standard deviation of the Gaussian fit in the frequency domain, and the diffusion length $\sigma$, the standard deviation of the Gaussian in the depth domain.
 
 % This statement requires citation \citep{AtkinsonSloan}. This one is an in-text citation because the authors of \citet{ColtonKress1} are specifically mentioned.
 
@@ -964,6 +924,11 @@ Johnsen, S.~J. (1977),
 Johnsen, S.~J., Clausen, H.~B., Cuffey, K.~M., Hoffmann, G., Schwander, J. and T. Creyts (2000),
 {Diffusion of stable isotopes in polar firn and ice: the isotope effect in firn diffusion},
 \textit{Physics of Ice Core Records}, 121--140.
+
+\bibitem[{\textit{Lasaga}(2014)}]{Lasaga2014}
+Lasaga, A. C. (2014),
+{Kinetic theory in the earth sciences},
+\textit{Princeton University Press}.
 
 \bibitem[{\textit{Oerter et~al.}(2004)}]{Oerter2004}
 Oerter, H., Graf, W., Meyer, H. and F. Wilhelms (2004),
