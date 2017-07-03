@@ -149,7 +149,7 @@
 % \altaffilmark will produce footnote; matching \altaffiltext will appear at bottom of page.
 
 \authors{Emma C. Kahle,\altaffilmark{1}
-Christian Holme,\altaffilmark{2} Eric, who else?}
+Christian Holme,\altaffilmark{2} Eric Steig,\altaffilmark{1} and Vasileios Gkinis,\altaffilmark{2}}
 
 \altaffiltext{1}{Department of Earth and Space Sciences, University of Washington, Seattle, Washington, USA.}
 
@@ -183,7 +183,7 @@ isotope method \citep{Johnsen2000}.
 
 \subsection{Stable Water Isotope Diffusion}
 
-Water isotope diffusion occurs primarily in the firn layer, snowfall in the upper tens of meters of an ice sheet that has yet to be fully compressed into ice. Because firn is permeable, water molecules can diffuse through in the vapor phase, damping the seasonal variations and high-frequency noise of the original isotope signal. As the diffusion process depends on temperature, a temperature record can be obtained by measuring the extent of diffusion that has occurred \citep{Johnsen2000}. This method is independent of conventional assumptions about isotope fractionation before deposition, and thus improves on conventional ice core temperature methods. Beyond information about past temperature, diffusion estimates also provide constraints on past firn conditions and total ice thinning. With these motivations, estimations of diffusion have been made for ice cores in both Greenland and Antarctica \citep{Simonsen2011,Gkinis2014,vanderWel2015,Jones2017a}. Past studies have outlined the math behind this theory, and we thoroughly derive these equations in Appendices A through D.
+Water isotope diffusion occurs primarily in the firn layer, snowfall in the upper tens of meters of an ice sheet that has yet to be fully compressed into ice. Because firn is permeable, water molecules can diffuse through in the vapor phase, damping the seasonal variations and high-frequency noise of the original isotope signal. As the diffusion process depends on temperature, a temperature record can be obtained by measuring the extent of diffusion that has occurred \citep{Johnsen2000}. This method is independent of conventional assumptions about isotope fractionation before deposition, and thus improves on conventional ice core temperature methods. Beyond information about past temperature, diffusion estimates also provide constraints on past firn conditions and total ice thinning. With these motivations, estimations of diffusion have been made for ice cores in both Greenland and Antarctica \citep{Simonsen2011,Gkinis2014,vanderWel2015,Jones2017a,Holme2017}. Past studies have outlined the math behind this theory, and we thoroughly derive these equations in Appendices A through D.
 
 \subsection{Measurement of Ice Core Water Isotopes}
 
@@ -193,7 +193,7 @@ In the past, most ice core water isotope data have been measured discretely by m
 
 We use data from the WAIS Divide (WDC) \citep{Jones2017b} and South Pole (SPC) \citep{Casey2014} ice cores, both measured continuously at the Institute of Arctic and Alpine Research (INSTAAR) at the University of Colorado. We use the first 2800 meters of WDC, corresponding to approximately 30,000 years. As of this writing, the full SPC record is still being analyzed, but we use two 50-meter sections, one from the Holocene and one from the last glacial period. INSTAAR uses a CFA system to measure the water isotope ratios of $\delta^{18}$O, $\delta^{17}$O, and $\delta$D at a resolution of half-cm. The CFA system was developed throughout the measurement of WDC, and the same methods were used to measure SPC. For complete details on the INSTAAR CFA system, see \citet{Jones2017b}. For comparison we use other published discrete and continuous water isotope data sets from Greenland and Antarctic cores presented in \citet{Oerter2004,Gkinis2011a,Steig2013,Svensson2015,Holme2017}.
 
-The spectra of these CFA data have different characteristics than discretely-sampled data due to their higher resolution and greater signal to noise ratio. Discretely-sampled data have been effectively analyzed for diffusion lengths by a number of studies \citep{Johnsen2000,Simonsen2011,Gkinis2014,vanderWel2015} and match well with spectra from theoretically derived synthetic data \citep{Holme2017}. However, these diffusion estimation methods can not be applied to spectra from CFA data due to an additional characteristic in the mid-frequency range ($10-40$ cycles/m $\approx 2.5-10$ cm ice) exposed by the lower baseline noise level. Figure \ref{spectra_disVScfa} demonstrates this spectral difference by comparing the spectra of discretely- and continuously-measured data. The CFA spectra have a ``transition zone" where power decreases approximately linearly from the diffusion-damped frequencies into the higher-frequency noise of the measurement system. The highest-resolution discretely-sampled data sets do not show this transition zone in the spectrum.
+The spectra of these CFA data have different characteristics than discretely-sampled data due to their higher resolution and greater signal to noise ratio. Discretely-sampled data have been effectively analyzed for diffusion lengths by a number of studies \citep{Johnsen2000,Simonsen2011,Gkinis2014,vanderWel2015} and match well with spectra from theoretically derived synthetic data \citep{Holme2017}. However, these diffusion estimation methods can not be applied to spectra from CFA data due to an additional characteristic in the mid-frequency range ($10-40$ cycles/m $\approx 2.5-10$ cm ice) exposed by the lower baseline noise level. Figure \ref{spectra_disVScfa} demonstrates this spectral difference by comparing the spectra of discretely- and continuously-measured data. The frequency domain is based on the Nyquist frequency. The CFA spectra have a ``transition zone" where power decreases approximately linearly from the diffusion-damped frequencies into the higher-frequency noise of the measurement system. The highest-resolution discretely-sampled data sets do not show this transition zone in the spectrum.
 
 Because estimating diffusion length depends on the shape of the spectrum, the presence of this transition zone affects calculation of diffusion length using conventional methods. In this paper we describe how to estimate diffusion lengths on CFA data despite the existence of this transition. We start with the approaches developed in \citet{Johnsen2000} and \citet{Gkinis2014} and propose two adjusted techniques to accommodate this transition in CFA water isotope data.
 
@@ -220,7 +220,7 @@ z \frac{\partial \delta}{\partial z},
 
 \noindent where \begin{math} S(t) \end{math} is the total thinning the layer has experienced due to ice flow from $t=0$ to $t=t'$:
 \begin{equation}
-S(t') = exp \left( \int^{t'}_{0} \dot{\epsilon}(t) dt \right).
+S(t') = \exp \left( \int^{t'}_{0} \dot{\epsilon}(t) dt \right).
 \end{equation}
 Previous studies layout these main equations, but many of the derivation details are left out. For detailed analytical and statistical derivations of the solution in Equation \ref{eq:diff_sol}, see Appendices A and B.
 
@@ -267,16 +267,16 @@ This two-function technique has been used effectively to estimate diffusion leng
 To generalize the fitting technique to function for CFA data as well as discrete data, we consider two different approaches. The first approach removes the transition zone by masking it with white noise, allowing the spectra to be fit effectively by two functions, as above. The second approach builds on the two-function technique by including an extra function in the parameterization. In this section, each technique is introduced and illustrated on spectra from WDC and SPC.
 
 \subsection{Technique 1: Adding White Noise}
-The main differences between CFA data and discrete data are the resolution and precision. These differences result in the presence of the transition zone due to a lower white noise baseline for the high frequencies in the CFA data compared to the measurement baseline of the discrete data, as shown in Figure \ref{spectra_disVScfa}. In order to fit the CFA spectrum, this technique masks the transition zone in the CFA data. We add Gaussian-distributed noise in the time domain, which increases the white-noise level in the frequency domain. The transition zone is hidden under this added noise, and the resulting power spectrum is similar to that of older, less-precise CFA and discrete measurements. The two-function technique of \citet{Gkinis2014} can now be effectively applied to the spectrum. The disadvantage of this technique is that it manipulates the orginal signal; while the added noise masks the transition zone, it may also mask useful climate information. Figure \ref{WAIS_spectrum_added_noise} illustrates this technique with a WDC spectrum.
+The main differences between CFA data and discrete data are the resolution and precision. These differences result in the presence of the transition zone due to a lower white noise baseline for the high frequencies in the CFA data compared to the measurement baseline of the discrete data, as shown in Figure \ref{spectra_disVScfa}. In order to fit the CFA spectrum, this technique masks the transition zone in the CFA data. We add Gaussian-distributed noise in the time domain, which increases the white-noise level in the frequency domain. The transition zone is hidden under this added noise, and the resulting power spectrum is similar to that of older, less-precise CFA and discrete measurements. The two-function technique of \citet{Gkinis2014} can now be effectively applied to the spectrum. The disadvantage of this technique is that it manipulates the original signal; while the added noise masks the transition zone, it may also mask useful climate information. Figure \ref{WAIS_spectrum_added_noise} illustrates this technique with a WDC spectrum.
 
 We used a sensitivity test to quantify the best choice of added noise level. The test uses a 500-year moving window throughout the WDC record. For each windowed section, 100 diffusion lengths are estimated by adding an increasing white noise baseline to the data in each window. A diffusion length is estimated for each tested noise level on each 500-year window. Adding too little noise does not effectively mask the transition zone, but adding too much noise risks masking the climate signal. We define the optimal noise level as that with which the diffusion length estimates stop changing with increasing noise. This level can be found when the gradient of diffusion length with respect to added noise level approaches zero. Figure \ref{added_noise_sensitivity} shows this how this gradient changes for both $\delta^{18}$O and $\delta$D throughout the WDC core. For WDC, the optimal added noise is Gaussian-distributed noise with a standard deviation of $0.4 \, \permil$ for $\delta^{18}$O and $3.0 \,\permil$ for $\delta$D.
 
 \subsection{Technique 2: Parameterizing a Multi-Function Fit}
 The second approach creates a multi-function parameterization of the total spectrum by adding a third function to the Gaussian and noise functions of the two-function technique of \citet{Gkinis2014}. We test three different functions to determine which addition yields the best full-spectrum fit. First, we add a second AR-1 function; second, we add a second Gaussian curve; third, we add a folded normal distribution (FND) \citep{Tsagris2014}:
 \begin{equation}
-P = P_{0} \cdot e^{-(k \cdot \sigma)^2} \cdot |\left[1 - \Phi(-i k \sigma)\right]|^2,
+\phi = \phi_{0} \cdot e^{-(k \cdot \psi)^2} \cdot |\left[1 - \Phi(-i k \psi)\right]|^2,
 \end{equation}
-where $\Phi(\sigma) = 1/2\cdot \mathrm{erfc}(-\sigma/2) $. Here $P_0$ and $\sigma$ are the two parameters that are varied to optimize the fit. The justification of fitting a FND is that it reflects the unidirectional memory and diffusion induced by the one-way flow of the CFA system. A FND is the absolute value of a Gaussian distribution, resulting in a function that smooths in only one direction. Because water is continuously flowing in one direction in the CFA system, the application of a FND mimics this one-sided effect. Thus if this unidirectional effect of the CFA system is significant, we expect the FND function to fit the data well.
+where $\Phi(\psi) = 1/2\cdot \mathrm{erfc}(-\psi/2) $. Here $\phi_0$ and $\psi$ are the two parameters that are varied to optimize the fit. The justification of fitting a FND is that it reflects the unidirectional memory and diffusion induced by the one-way flow of the CFA system. A FND is the absolute value of a Gaussian distribution, resulting in a function that smooths in only one direction. Because water is continuously flowing in one direction in the CFA system, the application of a FND mimics this one-sided effect. Thus if this unidirectional effect of the CFA system is significant, we expect the FND function to fit the data well.
 
 The results of each of these three parameterizations for WDC and SPC are shown in Figures \ref{GRR_fits} through \ref{folded_normal_gauss_spectrum}. Figure \ref{GRR_fits} shows the first parameterization, which sums a Gaussian curve and two autoregressive noise functions. With the inclusion of this third function in both WDC and SPC, the total fit is visually improved, as compared to the single-Gaussian fit in Figure \ref{GR_fits}. Figure \ref{GGR_fits} shows the parameterization that sums two Gaussian curves and one autoregressive noise function. Similarly, there is a visual improvement in the total fit as compared to the single-Gaussian fit. Finally, Figure \ref{folded_normal_gauss_spectrum} shows the parameterization that sums one Gaussian, one autoregressive noise function, and a FND function. Due to the close relationship between a Gaussian and a FND function, the fits in Figures \ref{GGR_fits} and \ref{folded_normal_gauss_spectrum} are very similar.
 
@@ -284,7 +284,7 @@ The results of each of these three parameterizations for WDC and SPC are shown i
 
 \section{Evaluating Fitting Techniques}
 \subsection{Goodness of Fit}
-The different fitting procedures in each technique are evaluated by calculating the adjusted goodness of fit ($\bar{R}^2$) between the data spectra and parameterizations. The $\bar{R}^2$ is a goodness of fit estimation ($R^2$) that takes into account the number of variable parameters ($p$):
+The different fitting procedures in each technique are evaluated by calculating the adjusted coefficient of determination ($\bar{R}^2$) as a goodness of fit between the data spectra and parameterizations. The coefficient of determination ($R^2$) is calculated by comparing the variability of the estimation errors with the variability of the original values, while the $\bar{R}^2$ takes into account the number of variable parameters ($p$):
 \begin{equation}
 \bar{R}^2 = 1 - (1 -R^2) \frac{n - 1}{n - p - 1},
 \end{equation}
@@ -302,7 +302,7 @@ to the lower resolution of that diffusion length record.
 
 \section{Discussion}
 
-So far we have outlined techniques to produce fits more generally on all water isotope data. We have evaluated how well those techniques work both absolutely and comparitively between methods. In this section we discuss two applications of how these fitting methods can be useful to better understand the climate and ice sheet changes. First, we apply these fitting methods to data from the SPC to estimate a temperature change between the glacial and interglacial periods. Second, we discuss how these fits help us explore the origin of the transition zone and firn processes that may contribute.
+So far we have outlined techniques to produce fits more generally on all water isotope data. We have evaluated how well those techniques work both absolutely and comparatively between methods. In this section we discuss two applications of how these fitting methods can be useful to better understand the climate and ice sheet changes. First, we apply these fitting methods to data from the SPC to estimate a temperature change between the glacial and interglacial periods. Second, we discuss how these fits help us explore the origin of the transition zone and firn processes that may contribute.
 
 \subsection{Application: South Pole Glacial-Interglacial Temperature}
 
@@ -330,7 +330,7 @@ Rather than originating from noise added within the CFA system, another possibil
 
 The \citet{Johnsen2000} model has been shown to work well in capturing a bulk diffusion length by fitting a Gaussian curve to the data spectrum, but the added complexity of allowing a range of individual diffusion lengths could contribute to the sloping power spectrum of the transition zone. Mathematically, the \citet{Johnsen2000} model matches a Gaussian curve and corresponding diffusion length to the bulk water isotopes in the firn for a given window of data. This new model that allows individual molecules to experience different amounts of time in the vapor phase, within some range, corresponds to a range of Gaussian curves and thus a range of diffusion lengths.
 
-Each Gaussian curve is weighted by the number of molecules that experienced that amount of diffusion and the collection of weighted Gaussian curves sums to a non-Gaussian filter that fits the data spectrum and transition zone. In theory, this collection of Gaussian curves is infinite as it represents an infinite range of possible amounts of time spent in the vapor phase. In practice, this inifite collection can be approximated by a finite collection representing the most probable range. As shown above in the multi-function parameterization, perhaps as few as two Gaussian curves can sufficiently represent the infinite summation. The range of possible amounts of time spent in the vapor phase reflects something about the properties of the firn column. Creating such a model can track how the ditribution of diffusion lengths changes through time, and thus track information about changing firn properties through time.
+Each Gaussian curve is weighted by the number of molecules that experienced that amount of diffusion and the collection of weighted Gaussian curves sums to a non-Gaussian filter that fits the data spectrum and transition zone. In theory, this collection of Gaussian curves is infinite as it represents an infinite range of possible amounts of time spent in the vapor phase. In practice, this infinite collection can be approximated by a finite collection representing the most probable range. As shown above in the multi-function parameterization, perhaps as few as two Gaussian curves can sufficiently represent the infinite summation. The range of possible amounts of time spent in the vapor phase reflects something about the properties of the firn column. Creating such a model can track how the distribution of diffusion lengths changes through time, and thus track information about changing firn properties through time.
 
 To gain more insight into the origin of the transition zone noise, whether from within the CFA system or from a natural firn process, we could use new ice core measurements to isolate CFA system effects. One approach is to make double measurements, continuous and discrete, on a section of ice from SPC. Measuring the same meters of ice discretely and continuously at the same resolution would provide a comparison to highlight where the noise originates. If the discrete data spectrum contains a transition zone identical to that of the continuous data, this result would suggest the transition zone noise originates in the firn naturally rather than in CFA system. Conversely, if the discrete data spectrum resembles that of lower-resolution discrete data, this result would suggest the transition zone originates in the CFA system itself.
 
@@ -338,7 +338,7 @@ To gain more insight into the origin of the transition zone noise, whether from 
 
 \section{Conclusions}
 
-In this study we examine the diffusion of water-isotope data from the WAIS Divide and South Pole ice cores measured on the CFA system at INSTAAR. We observe that spectra from these CFA data, unlike spectra from comparable discetely-sampled data, have a unique transition zone in the mid-frequencies (10-40 cycles/meter). Previous diffusion-length estimate techniques fail to properly fit these CFA data. We find that the most effective ways to estimate diffusion lengths on these CFA data are the noise-adding technique and the double-Gaussian parameterization of the multi-function fitting technique. These methods are efficient in terms of time and effort required and also effectively fit the transition zone. The diffusion lengths estimated from these techniques can be used to approximate a temperature record for the ice core site. These temperature records are independent of conventional assumptions about temperature-water-isotope relationships and are important for model-data comparisons. Properly fitting and understanding the transition-zone noise in the CFA data is important for past temperature reconstructions and insight into natural firn processes.
+In this study we examine the diffusion of water-isotope data from the WAIS Divide and South Pole ice cores measured on the CFA system at INSTAAR. We observe that spectra from these CFA data, unlike spectra from comparable discretely-sampled data, have a unique transition zone in the mid-frequencies (10-40 cycles/meter). Previous diffusion-length estimate techniques fail to properly fit these CFA data. We find that the most effective ways to estimate diffusion lengths on these CFA data are the noise-adding technique and the double-Gaussian parameterization of the multi-function fitting technique. These methods are efficient in terms of time and effort required and also effectively fit the transition zone. The diffusion lengths estimated from these techniques can be used to approximate a temperature record for the ice core site. These temperature records are independent of conventional assumptions about temperature-water-isotope relationships and are important for model-data comparisons. Properly fitting and understanding the transition-zone noise in the CFA data is important for past temperature reconstructions and insight into natural firn processes.
 
 %----------------------------------------------------------------------------------------
 %	APPENDICES (OPTIONAL)
@@ -793,7 +793,6 @@ This is the conversion between $\varsigma$, the standard deviation of the Gaussi
 %----------------------------------------------------------------------------------------
 
 \begin{acknowledgments}
-\textit{Vasileios needs the following paragraph:}
 The research leading to these results has received funding from the European Research Council under the
 European Union's Seventh Framework Programme (FP7/2007-2013) grant agreement \#610055 as part
 of the ice2ice project.
@@ -838,7 +837,7 @@ of the ice2ice project.
   \urlstyle{rm}\Url}\fi
 
 
-\bibitem[{\textit{Brand et~al.}(2009)}]{Brand2009} Brand, W. A., Geilmann, H., Crosson, E. R., & Rella, C. W. (2009), Cavity ring‐down spectroscopy versus high‐temperature conversion isotope ratio mass spectrometry; a case study on δ2H and δ18O of pure water samples and alcohol/water mixtures, \textit{Rapid Communications in Mass Spectrometry}, \textit{23}(12), 1879--1884.
+\bibitem[{\textit{Brand et~al.}(2009)}]{Brand2009} Brand, W. A., Geilmann, H., Crosson, E. R., \& Rella, C. W. (2009), Cavity ring‐down spectroscopy versus high‐temperature conversion isotope ratio mass spectrometry; a case study on δ2H and δ18O of pure water samples and alcohol/water mixtures, \textit{Rapid Communications in Mass Spectrometry}, \textit{23}(12), 1879--1884.
 
 \bibitem[{\textit{Casey et~al.}(2014)}]{Casey2014} Casey, K. A., Fudge, T. J., Neumann, T. A., Steig, E. J., Cavitte, M. G. P., and Blankenship, D. D. (2014), The 1500 m South Pole ice core: recovering a 40 ka environmental record, \textit{Annals of Glaciology}, \textit{55}(68), 137--146.
 
@@ -876,14 +875,14 @@ Gkinis, V., Simonsen, S.~B., Buchardt, S.~L., White, J.~W.~C. and  B.~M. Vinther
 \textit{Earth and Planetary Science Letters}, \textit{405}, 132--141.
 
 \bibitem[{\textit{Gupta et~al.}(2009)}]{Gupta2009}
-Gupta, P., Noone, D., Galewsky, J., Sweeney, C., & Vaughn, B. H. (2009),
+Gupta, P., Noone, D., Galewsky, J., Sweeney, C., \& Vaughn, B. H. (2009),
 {Demonstration of high‐precision continuous measurements of water vapor isotopologues in laboratory and remote field deployments using wavelength‐scanned cavity ring‐down spectroscopy (WS‐CRDS) technology},
 \textit{Rapid Communications in Mass Spectrometry}, \textit{23}(16), 2534--2542.
 
 \bibitem[{\textit{Holme et~al.}(2017)}]{Holme2017}
 Holme, C., Gkinis, V., and B. M. ~Vinther (2017), Molecular
 diffusion of stable water isotopes in polar firn as a proxy
-for past temperatures, Submitted for publication in \textit{Geochimica et Cosmochimica Acta}.
+for past temperatures, Under review in \textit{Geochimica et Cosmochimica Acta}.
 
 \bibitem[{\textit{Jones et~al.}(2017a)}]{Jones2017a}
 Jones, T.~R., Cuffey, K.~M., White, J.~W.~C., Steig, E.~J., Buizert, C.,
@@ -910,7 +909,7 @@ Johnsen, S.~J., Clausen, H.~B., Cuffey, K.~M., Hoffmann, G., Schwander, J. and T
 \textit{Physics of Ice Core Records}, 121--140.
 
 \bibitem[{\textit{Kerstel et~al.}(1999)}]{Kerstel1999}
-Kerstel, E. T., Van Trigt, R., Reuss, J., & Meijer, H. A. J. (1999),
+Kerstel, E. T., Van Trigt, R., Reuss, J., \& Meijer, H. A. J. (1999),
 {Simultaneous determination of the 2H/1H, 17O/16O, and 18O/16O isotope abundance ratios in water by means of laser spectrometry},
 \textit{Analytical Chemistry}, \textit{71}(23), 5297--5303.
 
@@ -920,7 +919,7 @@ Lasaga, A. C. (2014),
 \textit{Princeton University Press}.
 
 \bibitem[{\textit{Lis et~al.}(2008)}]{Lis2008}
-Lis, G., Wassenaar, L. I., & Hendry, M. J. (2008),
+Lis, G., Wassenaar, L. I., \& Hendry, M. J. (2008),
 {High-precision laser spectroscopy D/H and 18O/16O measurements of microliter natural water samples},
 \textit{Analytical Chemistry}, \textit{80}(1), 287--293.
 
@@ -1059,7 +1058,7 @@ Isotopic diffusion in cold snow and firn,
 		\indent\includegraphics[width=0.9\linewidth]{PSD_CFA_v1.eps}
 
 	\end{minipage}
-	\caption{Left figure: The normalized PSD of five discretely measured $\delta^{18}$O series plotted together with the PSD of a $\delta^{18}$O WDC section. Right figure: The normalized PSD of four continuously measured $\delta$D series.}
+	\caption{Left figure: The normalized PSD of five discretely measured $\delta^{18}$O series plotted together with the PSD of a $\delta^{18}$O WDC section. Right figure: The normalized PSD of four continuously measured $\delta$D series.} 
 \label{spectra_disVScfa}
 \end{figure}
 
