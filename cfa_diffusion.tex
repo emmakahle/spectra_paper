@@ -270,7 +270,7 @@ where the varied parameters are $a_1$, the AR-1 coefficient; $\varsigma_{\mathrm
 
 This two-function technique has been used effectively to estimate diffusion lengths on many discretely-sampled data sets \citep{Gkinis2014,Holme2017}. When applying this technique to CFA data sets, we find that the deviation from the exponential model in the CFA spectra affects the technique's ability to effectively fit the data. Figure \ref{GR_fits} illustrates this issue with examples from the WDC and SPC ice cores. The poor total fit of the two-function model to the data spectrum results in a poor estimation of diffusion length.
 
-\citet{Jones2017a} developed a method specifically for CFA data to avoid the effect of the spectral transition zone. This technique identifies the frequency at which the spectrum deviates from the exponential model and only includes lower frequencies in the Gaussian fit. Figure \ref{cutoff} shows examples of this cut-off technique for data sections from WDC and SPC. This technique relies on the assumption that enough of the diffusion signal is preserved below the chosen cut-off frequency to result in a reliable diffusion estimate. This technique works well to avoid the issue of the deviation from the exponential model, but the technique is subjective and tedious because it relies on determining cut-off frequencies by eye for each individual spectrum. A more objective and efficient technique that works with CFA data is needed.
+\citet{Jones2017a} developed a method specifically for CFA data that avoids this issue. This technique identifies the frequency at which the spectrum deviates from the exponential model and only includes lower frequencies in the Gaussian fit. Figure \ref{cutoff} shows examples of this cut-off technique for data sections from WDC and SPC. This technique relies on the assumption that enough of the diffusion signal is preserved below the chosen cut-off frequency to result in a reliable diffusion estimate. This technique works well to avoid the issue of the deviation from the exponential model, but the technique is subjective and tedious because it relies on determining cut-off frequencies by eye for each individual spectrum. A more objective and efficient technique that works with CFA data is needed.
 
 \section{Generalizing the Fitting Technique}
 We consider two different approaches to a general fitting technique that works for CFA data and can also be applied to discrete data. The first approach masks the CFA high-frequency deviation from the exponential model by adding white noise to the data so that the two-function technique can be applied. The second approach builds on the two-function technique by including a third function in the parameterization that accounts for the slower decay of the CFA power spectra. In the following section, each technique is introduced and illustrated on data sections from WDC and SPC.
@@ -714,6 +714,7 @@ Isotopic diffusion in cold snow and firn,
 
 \end{document}
 
+% Emma removed the following figure:
 \begin{figure}
 	\includegraphics[width=.9\linewidth]{WAIS_diffusion_lengths_thinning_corr.eps}
 	\caption{Thinning-corrected WDC diffusion lengths of $\delta^{18}$O compared with those from \cite{Jones2017a}.} \label{WAIS_diffusion_lengths_thinning_corr}
