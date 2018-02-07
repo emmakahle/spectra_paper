@@ -246,7 +246,7 @@ To calculate the power spectral density of these data sets, we use Burg's spectr
 
 where $P_0$ is the original power level before diffusion. A key assumption made in this process is that any variations in frequency in the power spectrum of the surface snow are small compared to the damping of high frequencies due to diffusion.
 
-Furthermore, the right panel of Figure \ref{spectra_disVScfa} demonstrates the evolution of CFA measurements through time, which provides insight into how the CFA system affects the power spectrum of the data. These effects arise from improvements to the Picarro instruments and software combined with changes in the CFA melt rate. This result is due to the averaging of raw data to an even depth scale prior to calculation of the spectrum. With different melt and aquistions rates of the system and of the instrument, the number of raw points averaged over for each even depth affects the smoothness of the resulting data set. Averaging over more raw data points for each sampled depth produces a smoother data set with further-damped high frequencies. For example, the Dome F core was measured on a Picarro 1102 instrument with a melt rate of about 3cm/sec and instrument aquisition rate of approximately 0.1Hz, resulting in roughly 1-point averages. Software improvements increased the data aquisition rate of the instrument, and the NEEM core data was averaged over roughly 2 to 3 points. The WDC core was measured on a Picarro 2130, with an aquisition rate of about 1.2Hz, and a decreased melt rate of 2.5cm/s, resulting in rougly 14-point averages. The SPC core was measured on a system with very similar specifications as that of the WDC core, but a Picarro 2140 instrument was used, which might have resulted in higher noise level due to increased sensitivity to $\delta^{18}$O measurements. This careful accounting of changes to the CFA and measurement systems through time explains some of the differences seen in the resulting spectra.
+Furthermore, the right panel of Figure \ref{spectra_disVScfa} demonstrates the evolution of CFA measurements through time, which provides insight into how the CFA system affects the power spectrum of the data. These effects arise from improvements to the Picarro instruments and software combined with changes in the CFA melt rate. This result is due to the averaging of raw data to an even depth scale prior to calculation of the spectrum. With different melt and aquistions rates of the system and of the instrument, the number of raw points averaged over for each even depth affects the smoothness of the resulting data set. Averaging over more data points at each sampled depth produces a smoother data set with further-damped high frequencies. For example, the Dome F core was measured on a Picarro 1102 instrument with a melt rate of about 3cm/sec and instrument aquisition rate of approximately 0.1Hz, resulting in roughly 1-point averages. Software improvements increased the data aquisition rate of the instrument, and the NEEM core data was averaged over roughly 2 to 3 points. The WDC core was measured on a Picarro 2130, with an aquisition rate of about 1.2Hz, and a decreased melt rate of 2.5cm/s, resulting in rougly 14-point averages. The SPC core was measured on a system with very similar specifications as that of the WDC core, but a Picarro 2140 instrument was used, which might have resulted in higher noise level due to increased sensitivity to $\delta^{18}$O measurements. See Table \ref{picarro_table} for a complete summary of the measurement of each core. This careful accounting of changes to the CFA and measurement systems through time explains some of the differences seen in the resulting spectra.
 
 
 %------------------------------------------------
@@ -711,6 +711,21 @@ Isotopic diffusion in cold snow and firn,
 	\caption{Estimated WDC diffusion lengths of $\delta^{18}$O compared with those from \cite{Jones2017a}.} \label{WAIS_diffusion_lengths}
 \end{figure}
 
+\begin{table}
+  \label{picarro_table}
+\caption{Summary of measurement specifications for each continuously measured core}
+\centering
+\begin{tabular}{|c | c c c c|}
+\hline
+Core  & Picarro Instrument & Aquisition Rate & Melt Speed & Measurements Averaged \\
+\hline
+Dome F  & 1102 & 0.1 Hz & 3 cm/min & $\sim$1   \\
+NEEM & 1102 (updated software) & 0.2 Hz & 3-4 cm/min & $\sim$2   \\
+WDC & 2130 & 1.2 Hz & 2.5 cm/min & $\sim$14   \\
+SPC & 2140 & 1.2 Hz & 2.25 cm/min & $\sim$15   \\
+\hline
+\end{tabular}
+\end{table}
 
 \end{document}
 
